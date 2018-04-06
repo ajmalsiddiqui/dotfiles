@@ -1,0 +1,5 @@
+# cd into the home directory
+alias home='cd ~'
+
+# The cliched git alias xD
+alias g='git'

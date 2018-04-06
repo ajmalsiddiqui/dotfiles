@@ -1,0 +1,88 @@
+# TODO - Move these variables to a seperate file
+export PATH_TO_PLAYGROUND="$HOME/Desktop/playground"
+export PATH_TO_PROJECTS="$HOME/Desktop/My Corner/Projects"
+export TEXT_EDITOR="Visual Studio Code"
+
+# I use playgrounds to experiment with new languages and features
+# without making a full fledged project
+# This creates a new playground with the name given as a command line arg
+play () {
+	# TODO : redirect io to /dev/null and write custom messages
+	if [ $# -lt 1 ] ; then
+		echo 'Project name not specified' && return 1
+	fi
+
+	mkdir $PATH_TO_PLAYGROUND/$1
+	if [ $? -ne 0 ] ; then
+		return 1
+	fi
+	cd $PATH_TO_PLAYGROUND/$1
+	echo "Created new playground $1" 
+}
+
+# Create a new project and cd into it, does NOT check if project already exists
+project () {
+	# TODO : redirect io to /dev/null and write custom messages
+        if [ $# -lt 1 ] ; then
+                echo 'Project name not specified' && return 1
+        fi
+
+        mkdir -p $PATH_TO_PROJECTS/$1
+        if [ $? -ne 0 ] ; then
+                return 1
+        fi
+        cd "$PATH_TO_PROJECTS/$1"
+        echo "Welcome to $1"
+}
+
+# Work on a project
+workon () {
+	if [ $# -lt 1 ] ; then
+		echo "Specify a project"
+		return 1
+	fi
+	if [ ! -d "$PATH_TO_PROJECTS/$1" ] ; then
+		echo "This project does not exist"
+		return 1
+	fi
+	
+	open -a "$TEXT_EDITOR" "$PATH_TO_PROJECTS/$1"
+	#cd "$PATH_TO_PROJECTS/$1"
+	echo "Working on $1"
+}
+
+# OSX Specific Script to get battery
+battery () {
+	# Grep options: -o output only matched part, -E use extended syntax
+	# regex [^ ]+$ matches the last word (not a space followed by 1+ chars to end)
+	# Battery remaining mAh is last word
+	charge=$( system_profiler SPPowerDataType | grep 'Charge Remaining' | grep -oE '[^ ]+$' )
+
+	# Full charge 
+	full_charge=$( system_profiler SPPowerDataType | grep 'Full Charge Capacity' | grep -oE '[^ ]+$' )
+
+	# Is charging?
+	charging=$( system_profiler SPPowerDataType | grep 'Charging' | tail -n 1 | grep -oE '[^ ]+$' )
+
+	# Percentage calculation
+	#percent=$( echo "scale=4; $charge / $full_charge * 100" | bc )
+	percent=$(( $charge * 100 / $full_charge ))
+
+	echo "$charge $full_charge $percent $charging"
+}
+
+# Just screwing around
+sahilsay () {
+	stuff=''
+	if [ $# -lt 1 ] ; then
+		read stuff
+	else
+		stuff=$1
+	fi
+	cowsay $stuff
+	printf "\n"
+	for i in $( seq 16 ) ; do
+		echo -n " "
+	done 
+	echo "^^ Sahil ^^"
+}
