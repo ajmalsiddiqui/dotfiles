@@ -9,15 +9,10 @@ export TEXT_EDITOR="Visual Studio Code"
 play () {
 	# TODO : redirect io to /dev/null and write custom messages
 	if [ $# -lt 1 ] ; then
-		echo 'Project name not specified' && return 1
+		echo 'Playground name not specified' && return 1
 	fi
-
-	mkdir $PATH_TO_PLAYGROUND/$1
-	if [ $? -ne 0 ] ; then
-		return 1
-	fi
-	cd $PATH_TO_PLAYGROUND/$1
-	echo "Created new playground $1" 
+	mkdir -p $PATH_TO_PLAYGROUND/$1 && cd $PATH_TO_PLAYGROUND/$1
+	echo "In playground $1" 
 }
 
 # Create a new project and cd into it, does NOT check if project already exists
@@ -27,12 +22,8 @@ project () {
                 echo 'Project name not specified' && return 1
         fi
 
-        mkdir -p $PATH_TO_PROJECTS/$1
-        if [ $? -ne 0 ] ; then
-                return 1
-        fi
-        cd "$PATH_TO_PROJECTS/$1"
-        echo "Welcome to $1"
+        mkdir -p $PATH_TO_PROJECTS/$1 && cd "$PATH_TO_PROJECTS/$1"
+        echo "In project $1"
 }
 
 # Work on a project
@@ -71,18 +62,16 @@ battery () {
 	echo "$charge $full_charge $percent $charging"
 }
 
-# Just screwing around
-sahilsay () {
-	stuff=''
-	if [ $# -lt 1 ] ; then
-		read stuff
-	else
-		stuff=$1
-	fi
-	cowsay $stuff
-	printf "\n"
-	for i in $( seq 16 ) ; do
-		echo -n " "
-	done 
-	echo "^^ Sahil ^^"
+# OSX specific script (uses AppleScripts) to ask me to take a break every hour
+# Run this function as a background process using &
+# alert &
+alert() {
+        while true ; do
+                date | grep -oEq '[0-9]{1,2}:03:00'
+                if [ "$?" -eq 0 ] ; then
+                        osascript -e 'tell app "System Events" to display dialodialog "Take a break! You have been staring at the screen for far too long "' 1>&/dev/null
+                        break
+                fi
+        done
+        exit 0
 }

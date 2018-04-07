@@ -10,11 +10,21 @@ link () {
 		for file in $( ls -A | grep -vE '\.exclude*|\.git|.*.md' ) ; do
 			ln -sv "$PWD/$file" "$HOME"
 		done
-		echo "Bootstrapping complete"
+		echo "Symlinking complete"
 	else
-		echo "Bootstraping cancelled by user"
+		echo "Symlinking cancelled by user"
 		return 1
 	fi
 }
 
+install_tools () {
+	if [ $( echo "$OSTYPE" | grep 'darwin' ) ] ; then
+		echo "Installing useful stuff using brew. This may take a while..."
+		sh brew.exclude.sh
+	else
+		echo "This part is only for Mac OS. Exiting..."
+	fi
+}
+
 link
+install_tools
