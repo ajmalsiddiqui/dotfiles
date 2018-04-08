@@ -28,6 +28,6 @@ Open a terminal and follow along!
 
 First up, my OS is Mac OSX and that's what my dotfiles are tailored to. I will eventually seperate out the OSX specific stuff.
 
-Like everyone else who customizes their dotfiles, I have my own way of doing things. For example, all of my projects are in ~/Desktop/My Corner/Projects, and the `project` function makes a new folder in this directory and cd's into it. This is definitely not conventional and hence you should start by changing the values of the variables defined in the various files to what suits your needs (the PATH_TO_PROJECTS variable keeps track of my projects directory).
+Like everyone else who customizes their dotfiles, I have my own way of doing things. For example, all of my projects are in ~/Projects, and the `project` function makes a new folder in this directory and cd's into it. This may or may not suit and hence you should start by changing the values of the variables defined in the various files to what suits your needs (the PATH_TO_PROJECTS variable keeps track of my projects directory).
 
 I like to explore new languages, frameworks and technologies. Hence, I have a folder called playground on my Desktop where I experiment with stuff. The `play` command makes a new folder in here and cd's into it (PATH_TO_PLAYGROUND is the corresponding variable). This is again something you should customize to suit your own needs (or remove entirely).
