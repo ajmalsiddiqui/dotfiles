@@ -3,13 +3,18 @@ export PATH_TO_PLAYGROUND="$HOME/playground"
 export PATH_TO_PROJECTS="$HOME/Projects"
 export TEXT_EDITOR="Visual Studio Code"
 
+# This line imports an OS specific functions file if one exists
+# Not been tested on any OS other than Mac OSX
+# TODO: find a better way than uname to distinguish between linux distros
+[ -f ".functions.$( uname )" ] && source ".functions.$( uname )"
+
 # I use playgrounds to experiment with new languages and features
 # without making a full fledged project
 # This creates a new playground with the name given as a command line arg
 play () {
 	# TODO : redirect io to /dev/null and write custom messages
 	if [ $# -lt 1 ] ; then
-		echo 'Playground name not specified' && return 1
+		echo 'Playground not specified' && return 1
 	fi
 	mkdir -p $PATH_TO_PLAYGROUND/$1 && cd $PATH_TO_PLAYGROUND/$1
 	echo "In playground $1" 
@@ -22,57 +27,6 @@ project () {
                 echo 'Project name not specified' && return 1
         fi
 
-        mkdir -p $PATH_TO_PROJECTS/$1 && cd "$PATH_TO_PROJECTS/$1"
+        mkdir -p "$PATH_TO_PROJECTS/$1" && cd "$PATH_TO_PROJECTS/$1"
         echo "In project $1"
-}
-
-# Work on a project (MacOS Specific)
-workon () {
-	if [ $# -lt 1 ] ; then
-		echo "Specify a project"
-		return 1
-	fi
-	if [ ! -d "$PATH_TO_PROJECTS/$1" ] ; then
-		echo "This project does not exist"
-		return 1
-	fi
-	
-	open -a "$TEXT_EDITOR" "$PATH_TO_PROJECTS/$1"
-	#cd "$PATH_TO_PROJECTS/$1"
-	echo "Working on $1"
-}
-
-# OSX Specific Script to get battery
-battery () {
-	# Grep options: -o output only matched part, -E use extended syntax
-	# regex [^ ]+$ matches the last word (not a space followed by 1+ chars to end)
-	# Battery remaining mAh is last word
-	charge=$( system_profiler SPPowerDataType | grep 'Charge Remaining' | grep -oE '[^ ]+$' )
-
-	# Full charge 
-	full_charge=$( system_profiler SPPowerDataType | grep 'Full Charge Capacity' | grep -oE '[^ ]+$' )
-
-	# Is charging?
-	charging=$( system_profiler SPPowerDataType | grep 'Charging' | tail -n 1 | grep -oE '[^ ]+$' )
-
-	# Percentage calculation
-	#percent=$( echo "scale=4; $charge / $full_charge * 100" | bc )
-	percent=$(( $charge * 100 / $full_charge ))
-
-	echo "$charge $full_charge $percent $charging"
-}
-
-# TODO : Implement this using the at command after enabling it (man atrun)
-# OSX specific script (uses AppleScripts) to ask me to take a break every hour
-# Run this function as a background process using &
-# alert &
-alert() {
-        while true ; do
-                date | grep -oEq '[0-9]{1,2}:00:00'
-                if [ "$?" -eq 0 ] ; then
-                        osascript -e 'tell app "System Events" to display dialog "Take a break! You have been staring at the screen for far too long "' 1>&/dev/null
-                        break
-                fi
-        done
-        exit 0
 }
