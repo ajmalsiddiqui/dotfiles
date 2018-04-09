@@ -19,3 +19,22 @@ alias gc='git commit -m'
 alias gp='git push'
 alias gpo='git push origin'
 alias gpom='git push origin master'
+
+
+# ---------------------------------
+# NPM :D
+# ---------------------------------
+
+# This makes life MUCH easier :')
+alias nr='npm run'
+alias ni='npm install'
+alias nid='npm install -D'
+
+# ---------------------------------
+# Aliases for the Heroku CLI
+# ---------------------------------
+
+alias h='heroku'
+alias hl='heroku login'
+alias hc='heroku create'
+alias gphm='git push heroku master'

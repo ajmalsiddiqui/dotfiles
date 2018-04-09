@@ -32,7 +32,7 @@ install_tools () {
 			echo "Brew installation cancelled by user" && return 1
 		fi
 	else
-		echo "This part is only for Mac OS. Exiting..."
+		echo "Skipping installations using Homebrew because MacOS was not detected..."
 	fi
 }
 
