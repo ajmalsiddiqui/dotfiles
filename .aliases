@@ -1,5 +1,21 @@
-# cd into the home directory
-alias home='cd ~'
+# ---------------------------------
+# Common aliases
+# ---------------------------------
 
-# The cliched git alias xD
+alias home='cd ~'
+alias ..='cd ..'
+
+
+# ---------------------------------
+# Git specific aliases
+# ---------------------------------
+
 alias g='git'
+alias gi='git init'
+alias gra='git remote add'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit -m'
+alias gp='git push'
+alias gpo='git push origin'
+alias gpom='git push origin master'
