@@ -14,7 +14,7 @@ export TEXT_EDITOR="Visual Studio Code"
 play () {
 	# TODO : redirect io to /dev/null and write custom messages
 	if [ $# -lt 1 ] ; then
-		echo 'Playground not specified' && return 1
+		cd "$PATH_TO_PLAYGROUND" && echo 'In playground' && return 1
 	fi
 	mkdir -p $PATH_TO_PLAYGROUND/$1 && cd $PATH_TO_PLAYGROUND/$1
 	echo "In playground $1" 
@@ -24,7 +24,7 @@ play () {
 project () {
 	# TODO : redirect io to /dev/null and write custom messages
         if [ $# -lt 1 ] ; then
-                echo 'Project name not specified' && return 1
+                cd "$PATH_TO_PROJECTS" && echo 'In Projects' && return 1
         fi
 
         mkdir -p "$PATH_TO_PROJECTS/$1" && cd "$PATH_TO_PROJECTS/$1"
