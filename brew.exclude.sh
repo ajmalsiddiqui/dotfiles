@@ -12,11 +12,12 @@ if [ ! "$?" -eq 0 ] ; then
 	fi
 fi
 
-# Make sure we’re using the latest Homebrew.
+# Make sure we’re using the latest Homebrew
 brew update
 
-# Upgrade any already-installed formulae.
+# Upgrade any already-installed formulae
 brew upgrade
+
 
 # ---------------------------------------------
 # Programming Languages and Frameworks
@@ -27,6 +28,29 @@ brew install node
 
 # Python 3
 brew install python
+
+
+# ---------------------------------------------
+# Tools I use often as a NodeJS developer
+# ---------------------------------------------
+
+# Heroku 
+brew install heroku
+
+# Yarn - an alternative to npm
+brew install yarn
+
+
+# ---------------------------------------------
+# Database Systems I use Often
+# ---------------------------------------------
+
+# MongoDB :D
+brew install mongo
+
+# RedisDB
+brew install redis
+
 
 # ---------------------------------------------
 # Misc
@@ -40,3 +64,7 @@ brew install httpie
 
 # Show directory structure with excellent formatting
 brew install tree
+
+
+# Remove outdated versions from the cellar
+brew cleanup
