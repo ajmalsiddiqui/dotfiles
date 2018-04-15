@@ -17,7 +17,22 @@ workon () {
 	echo "Working on $1"
 }
 
-# OSX Specific Script to get battery
+# Open a project in the TEXT_EDITOR
+playwith () {
+	if [ $# -lt 1 ] ; then
+		echo "Specify a playground"
+		return 1
+	fi
+	if [ ! -d "$PATH_TO_PLAYGROUND/$1" ] ; then
+		echo "This playground does not exist"
+		return 1
+	fi
+	
+	open -a "$TEXT_EDITOR" "$PATH_TO_PLAYGROUND/$1"
+	echo "Playing with $1"
+}
+
+# OSX Specific Script to get battery details
 battery () {
 	# Grep options: -o output only matched part, -E use extended syntax
 	# regex [^ ]+$ matches the last word (not a space followed by 1+ chars to end)
@@ -37,17 +52,16 @@ battery () {
 	echo "$charge $full_charge $percent $charging"
 }
 
-# TODO : Implement this using the at command after enabling it (man atrun)
 # OSX specific script (uses AppleScripts) to ask me to take a break every hour
 # Run this function as a background process using &
 # alert &
 alert () {
         while true ; do
-                date | grep -oEq '[0-9]{1,2}:00:00'
-                if [ "$?" -eq 0 ] ; then
-                        osascript -e 'tell app "System Events" to display dialog "Take a break! You have been staring at the screen for far too long "' 1>&/dev/null
-                        break
-                fi
+            sleep 300
+            if [ "$?" -eq 0 ] ; then
+                    osascript -e 'tell app "System Events" to display dialog "Take a break! You have been staring at the screen for far too long "' 1>&/dev/null
+                    break
+            fi
         done
         exit 0
 }

@@ -39,3 +39,10 @@ alias h='heroku'
 alias hl='heroku login'
 alias hc='heroku create'
 alias gphm='git push heroku master'
+alias '?=man'
+
+
+# This should be the last line of the file
+# For local changes
+# Don't make edits below this
+[ -f ".aliases.local" ] && source ".aliases.local"

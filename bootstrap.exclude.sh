@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Initialize a few things
+init () {
+	mkdir -p 
+}
+
 # TODO : Delete symlinks to deleted files
 # Is this where rsync shines?
 # TODO - add support for -f and --force
@@ -12,6 +17,7 @@ link () {
 		for file in $( ls -A | grep -vE '\.exclude*|\.git|\.gitignore|.*.md' ) ; do
 			ln -sv "$PWD/$file" "$HOME"
 		done
+		# TODO: source files here?
 		echo "Symlinking complete"
 	else
 		echo "Symlinking cancelled by user"

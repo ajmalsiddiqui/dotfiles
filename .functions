@@ -1,8 +1,3 @@
-# TODO - Move these variables to a seperate file
-export PATH_TO_PLAYGROUND="$HOME/playground"
-export PATH_TO_PROJECTS="$HOME/Projects"
-export TEXT_EDITOR="Visual Studio Code"
-
 # This line imports an OS specific functions file if one exists
 # Not been tested on any OS other than Mac OSX
 # TODO: find a better way than uname to distinguish between linux distros
@@ -14,7 +9,7 @@ export TEXT_EDITOR="Visual Studio Code"
 play () {
 	# TODO : redirect io to /dev/null and write custom messages
 	if [ $# -lt 1 ] ; then
-		cd "$PATH_TO_PLAYGROUND" && echo 'In playground' && return 1
+		cd "$PATH_TO_PLAYGROUND" && echo 'In playground'
 	fi
 	mkdir -p $PATH_TO_PLAYGROUND/$1 && cd $PATH_TO_PLAYGROUND/$1
 	echo "In playground $1" 
@@ -24,9 +19,14 @@ play () {
 project () {
 	# TODO : redirect io to /dev/null and write custom messages
         if [ $# -lt 1 ] ; then
-                cd "$PATH_TO_PROJECTS" && echo 'In Projects' && return 1
+                cd "$PATH_TO_PROJECTS" && echo 'In Projects'
         fi
 
         mkdir -p "$PATH_TO_PROJECTS/$1" && cd "$PATH_TO_PROJECTS/$1"
         echo "In project $1"
 }
+
+# This should be the last line of the file
+# For local changes
+# Don't make edits below this
+[ -f ".functions.local" ] && source ".functions.local"

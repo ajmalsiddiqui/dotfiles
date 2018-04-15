@@ -40,6 +40,9 @@ brew install heroku
 # Yarn - an alternative to npm
 brew install yarn
 
+# Docker for containerization
+brew install docker
+
 
 # ---------------------------------------------
 # Database Systems I use Often
@@ -55,6 +58,9 @@ brew install redis
 # ---------------------------------------------
 # Misc
 # ---------------------------------------------
+
+# My favorite text editor
+brew cask install visual-studio-code
 
 # Zsh 
 brew install zsh

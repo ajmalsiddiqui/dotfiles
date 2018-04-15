@@ -35,8 +35,6 @@ For example, to overwrite stuff in the `.bash_profile` file, make a file called 
 
 When you make a new `.local` file, you'll have to run `sh ./bootstrap.exclude.sh` before it can be used. You only have to run the linking part though, so choose `y` for that one part and `n` for the rest.
 
-(P.S Since I'm still taking baby steps in the direction of dotfiles, currently only the `.bash_profile` file can be customized using a `.bash_profile.local` file. This will change soon.)
-
 ### About My Dotfiles
 ---
 
