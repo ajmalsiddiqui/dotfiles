@@ -4,6 +4,7 @@
 
 alias home='cd ~'
 alias ..='cd ..'
+alias '?=man'
 
 
 # ---------------------------------
@@ -39,7 +40,6 @@ alias h='heroku'
 alias hl='heroku login'
 alias hc='heroku create'
 alias gphm='git push heroku master'
-alias '?=man'
 
 
 # This should be the last line of the file

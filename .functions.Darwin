@@ -17,15 +17,13 @@ workon () {
 	echo "Working on $1"
 }
 
-# Open a project in the TEXT_EDITOR
+# Open a playground in the TEXT_EDITOR
 playwith () {
 	if [ $# -lt 1 ] ; then
-		echo "Specify a playground"
-		return 1
+		echo "Specify a playground" && return 1
 	fi
 	if [ ! -d "$PATH_TO_PLAYGROUND/$1" ] ; then
-		echo "This playground does not exist"
-		return 1
+		echo "This playground does not exist" && return 1
 	fi
 	
 	open -a "$TEXT_EDITOR" "$PATH_TO_PLAYGROUND/$1"
@@ -33,6 +31,7 @@ playwith () {
 }
 
 # OSX Specific Script to get battery details
+# I'll probably use this while building my prompt
 battery () {
 	# Grep options: -o output only matched part, -E use extended syntax
 	# regex [^ ]+$ matches the last word (not a space followed by 1+ chars to end)
@@ -57,11 +56,9 @@ battery () {
 # alert &
 alert () {
         while true ; do
-            sleep 300
-            if [ "$?" -eq 0 ] ; then
-                    osascript -e 'tell app "System Events" to display dialog "Take a break! You have been staring at the screen for far too long "' 1>&/dev/null
-                    break
-            fi
+			# 3600 seconds is 1 hour
+            sleep 3600
+            osascript -e 'tell app "System Events" to display dialog "Take a break! You have been staring at the screen for far too long "' 1>&/dev/null
         done
         exit 0
 }

@@ -2,7 +2,10 @@
 
 # Initialize a few things
 init () {
-	mkdir -p 
+	echo "Making a Projects folder in $PATH_TO_PROJECTS if it doesn't already exist"
+	mkdir -p "$PATH_TO_PROJECTS"
+	echo "Making a Playground folder in $PATH_TO_PLAYGROUND if it doesn't already exist"
+	mkdir -p "$PATH_TO_PLAYGROUND"
 }
 
 # TODO : Delete symlinks to deleted files
@@ -27,7 +30,7 @@ link () {
 
 install_tools () {
 	if [ $( echo "$OSTYPE" | grep 'darwin' ) ] ; then
-		echo "This utility will install useful utilities using brew"
+		echo "This utility will install useful utilities using Homebrew"
 		echo "Proceed? (y/n)"
 		read resp
 		# TODO - regex here?
@@ -35,12 +38,13 @@ install_tools () {
 			echo "Installing useful stuff using brew. This may take a while..."
 			sh brew.exclude.sh
 		else
-			echo "Brew installation cancelled by user" && return 1
+			echo "Brew installation cancelled by user"
 		fi
 	else
 		echo "Skipping installations using Homebrew because MacOS was not detected..."
 	fi
 }
 
+init
 link
 install_tools
