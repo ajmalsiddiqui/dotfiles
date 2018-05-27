@@ -23,11 +23,11 @@ The bootstrap.exclude.sh script creates symlinks from the dotfiles in this direc
 This branch of my dotfiles can be painlessly installed using [Autodot](#https://github.com/ajmalsiddiqui/autodot), a dotfile management framework that makes dotfiles easy to manage and share while keeping you in the loop. To install using Autodot, either install autodot globally and then use the `install` command:
 ```
 $ npm install -g autodot
-$ autodot install https://github.com/ajmalsiddiqui/dotfiles
+$ autodot install https://github.com/ajmalsiddiqui/dotfiles/tree/autodot
 ```
 Or use npx to directly run autodot:
 ```
-$ npx autodot install https://github.com/ajmalsiddiqui/dotfiles
+$ npx autodot install https://github.com/ajmalsiddiqui/dotfiles/tree/autodot
 ```
 
 Or here's the more conventional way:
