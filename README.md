@@ -5,8 +5,7 @@ Top secret text files that make my world a better place. :')
 Make sure you read the [About My Dotfiles](#about-my-dotfiles) section if you intend to use these.
 Currently under construction.
 
-### A Word of Advice
----
+## A Word of Advice
 
 Before you use these (or any) dotfiles, make sure you back your dotfiles up into a directory (you'll find them in your home folder - type `ls -a` in the terminal).
 
@@ -14,20 +13,28 @@ Also, make sure you read the [About My Dotfiles](#about-my-dotfiles) section bef
 
 Dotfiles are meant to be different. What suits me well definitely won't be perfect for you. So I seriously recommend forking this repo and then making it your own.
 
-### Installation
----
+## Installation
 
 > Note:
 The bootstrap.exclude.sh script creates symlinks from the dotfiles in this directory to the HOME directory. Make sure that your dotfiles are backed up somewhere safe.
 
-Open a terminal and follow along!
+This branch of my dotfiles can be painlessly installed using [Autodot](#https://github.com/ajmalsiddiqui/autodot), a dotfile management framework that makes dotfiles easy to manage and share while keeping you in the loop. To install using Autodot, either install autodot globally and then use the `install` command (note that the `-b` flag takes the _branch_ in which an autodot.json file can be found, and currently only my "autodot" branch uses the framework):
+```
+$ npm install -g autodot
+$ autodot install -b autodot https://github.com/ajmalsiddiqui/dotfiles
+```
+Or use npx to directly run autodot:
+```
+$ npx autodot install -b autodot https://github.com/ajmalsiddiqui/dotfiles
+```
+
+Or here's the more conventional way:
 1. Clone this repository: `git clone https://github.com/ajmalsiddiqui/dotfiles`
 2. CD into the folder: `cd dotfiles`
 3. Execute the bootstrap script: `sh ./bootstrap.exclude.sh`
 4. Restart your terminal or run `source .bash_profile`
 
-### Customization
----
+## Customization
 
 You can customize these dotfiles using `.local` files. These can be used to add custom commands or configure things that you don't want to commit to a public repo. 
 
@@ -35,8 +42,7 @@ For example, to overwrite stuff in the `.bash_profile` file, make a file called 
 
 When you make a new `.local` file, you'll have to run `sh ./bootstrap.exclude.sh` before it can be used. You only have to run the linking part though, so choose `y` for that one part and `n` for the rest.
 
-### About My Dotfiles
----
+## About My Dotfiles
 
 First up, my OS is Mac OSX and that's what my dotfiles are tailored to. I will eventually seperate out the OSX specific stuff.
 
@@ -44,8 +50,8 @@ Like everyone else who customizes their dotfiles, I have my own way of doing thi
 
 I like to explore new languages, frameworks and technologies. Hence, I have a folder called playground on my Desktop where I experiment with stuff. The `play` command makes a new folder in here and cd's into it (PATH_TO_PLAYGROUND is the corresponding variable). This is again something you should customize to suit your own needs (or remove entirely).
 
-### Acknowledgements
----
+## Acknowledgements
+
 
 Shoutout to these amazing people and their dotfiles for inspiring my dotfiles in many ways.
 
