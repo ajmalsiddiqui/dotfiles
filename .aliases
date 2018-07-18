@@ -4,6 +4,7 @@
 
 alias home='cd ~'
 alias ..='cd ..'
+alias ...='cd ../..'
 alias '?=man'
 
 
@@ -31,6 +32,15 @@ alias nr='npm run'
 alias ni='npm install'
 alias nid='npm install -D'
 
+
+# ---------------------------------
+# Python virtual env aliases
+# ---------------------------------
+
+# Create a virtualenv with python3 as the interpreter
+# I usually name my virtualenv .venv
+alias venv='virtualenv -p /usr/local/bin/python3 .venv'
+alias vac='source .venv/bin/activate'
 
 # ---------------------------------
 # Aliases for the Heroku CLI
