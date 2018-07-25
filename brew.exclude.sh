@@ -74,3 +74,6 @@ brew install tree
 
 # Remove outdated versions from the cellar
 brew cleanup
+
+# tmux :'D 
+brew install tmux
