@@ -4,6 +4,7 @@
 
 alias home='cd ~'
 alias ..='cd ..'
+alias ...='cd ../..'
 alias '?=man'
 
 
@@ -12,15 +13,7 @@ alias '?=man'
 # ---------------------------------
 
 alias g='git'
-alias gi='git init'
-alias gra='git remote add'
-alias gs='git status'
-alias ga='git add'
-alias gc='git commit -m'
-alias gp='git push'
-alias gpo='git push origin'
-alias gpom='git push origin master'
-
+# Note: these aliases have been moved to .gitconfig
 
 # ---------------------------------
 # NPM :D
@@ -31,6 +24,15 @@ alias nr='npm run'
 alias ni='npm install'
 alias nid='npm install -D'
 
+
+# ---------------------------------
+# Python virtual env aliases
+# ---------------------------------
+
+# Create a virtualenv with python3 as the interpreter
+# I usually name my virtualenv .venv
+alias venv='virtualenv -p /usr/local/bin/python3 .venv'
+alias vac='source .venv/bin/activate'
 
 # ---------------------------------
 # Aliases for the Heroku CLI
