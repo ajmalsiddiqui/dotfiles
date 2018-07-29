@@ -13,15 +13,7 @@ alias '?=man'
 # ---------------------------------
 
 alias g='git'
-alias gi='git init'
-alias gra='git remote add'
-alias gs='git status'
-alias ga='git add'
-alias gc='git commit -m'
-alias gp='git push'
-alias gpo='git push origin'
-alias gpom='git push origin master'
-
+# Note: these aliases have been moved to .gitconfig
 
 # ---------------------------------
 # NPM :D

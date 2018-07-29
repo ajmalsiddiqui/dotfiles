@@ -1,0 +1,16 @@
+[alias]
+	i = init
+	s = status
+	p = push
+	a = add
+	c = commit -am
+
+	ra = remote add
+	po = push origin
+	
+	pom = push origin master
+	
+
+[user]
+	email = ajmalsiddiqui21@gmail.com
+	name = Mohammed Ajmal Siddiqui

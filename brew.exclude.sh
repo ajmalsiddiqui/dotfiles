@@ -71,9 +71,9 @@ brew install httpie
 # Show directory structure with excellent formatting
 brew install tree
 
+# tmux :'D 
+brew install tmux
+
 
 # Remove outdated versions from the cellar
 brew cleanup
-
-# tmux :'D 
-brew install tmux
