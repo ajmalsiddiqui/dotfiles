@@ -34,12 +34,6 @@ Or here's the more conventional way:
 3. Execute the bootstrap script: `sh ./bootstrap.exclude.sh`
 4. Restart your terminal or run `source .bash_profile`
 
-<<<<<<< HEAD
-=======
->Note:
-The [autodot branch](https://github.com/ajmalsiddiqui/dotfiles/tree/autodot) of this dotfiles repo allows direct installation of these dotfiles using the dotfile management framework [autodot](https://github.com/ajmalsiddiqui/autodot). Check that branch out to try installing using autodot (or directly using `npx`).
-
->>>>>>> master
 ## Customization
 
 You can customize these dotfiles using `.local` files. These can be used to add custom commands or configure things that you don't want to commit to a public repo. 
