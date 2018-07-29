@@ -4,9 +4,11 @@
 	p = push
 	a = add
 	c = commit -am
+	b = branch
 
 	ra = remote add
 	po = push origin
+	co = checkout
 	
 	pom = push origin master
 	
