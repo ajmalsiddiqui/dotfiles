@@ -76,9 +76,6 @@ brew install gdb
 # Misc
 # ---------------------------------------------
 
-# My favorite text editor
-brew cask install visual-studio-code
-
 # Zsh 
 brew install zsh
 
@@ -89,6 +86,9 @@ brew install zsh
 # Change font in terminal preferences
 brew tap caskroom/fonts
 brew cask install font-fira-code
+
+# My favorite text editor
+brew cask install visual-studio-code
 
 
 # ---------------------------------------------
