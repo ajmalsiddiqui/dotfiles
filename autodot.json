@@ -1,7 +1,0 @@
-{
-  "commands": {
-    "bootstrap": "sh \"$PWD\"/bootstrap.exclude.sh",
-    "sync": "sh \"$PWD\"/bootstrap.exclude.sh"
-  },
-  "repository": "https://github.com/ajmalsiddiqui/dotfiles"
-}

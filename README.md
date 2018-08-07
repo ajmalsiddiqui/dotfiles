@@ -18,21 +18,14 @@ Dotfiles are meant to be different. What suits me well definitely won't be perfe
 > Note:
 The bootstrap.exclude.sh script creates symlinks from the dotfiles in this directory to the HOME directory. Make sure that your dotfiles are backed up somewhere safe.
 
-This branch of my dotfiles can be painlessly installed using [Autodot](#https://github.com/ajmalsiddiqui/autodot), a dotfile management framework that makes dotfiles easy to manage and share while keeping you in the loop. To install using Autodot, either install autodot globally and then use the `install` command (note that the `-b` flag takes the _branch_ in which an autodot.json file can be found, and currently only my "autodot" branch uses the framework):
-```
-$ npm install -g autodot
-$ autodot install -b autodot https://github.com/ajmalsiddiqui/dotfiles
-```
-Or use npx to directly run autodot:
-```
-$ npx autodot install -b autodot https://github.com/ajmalsiddiqui/dotfiles
-```
-
-Or here's the more conventional way:
+Open a terminal and follow along!
 1. Clone this repository: `git clone https://github.com/ajmalsiddiqui/dotfiles`
 2. CD into the folder: `cd dotfiles`
 3. Execute the bootstrap script: `sh ./bootstrap.exclude.sh`
 4. Restart your terminal or run `source .bash_profile`
+
+> Note:
+Note: The [autodot branch](https://github.com/ajmalsiddiqui/dotfiles/tree/autodot) of this dotfiles repo allows direct installation of these dotfiles using the dotfile management framework [autodot](https://github.com/ajmalsiddiqui/autodot). Check that branch out to try installing using `autodot` (or directly using `npx`).
 
 ## Customization
 
