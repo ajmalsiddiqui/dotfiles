@@ -12,6 +12,8 @@
 	
 	pom = push origin master
 	
+[url "https://github.com/"]
+	insteadOf = gh:
 
 [user]
 	email = ajmalsiddiqui21@gmail.com

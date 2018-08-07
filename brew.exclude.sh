@@ -31,7 +31,7 @@ brew install python
 
 
 # ---------------------------------------------
-# Tools I use often as a NodeJS developer
+# Tools I use often
 # ---------------------------------------------
 
 # Heroku 
@@ -56,14 +56,8 @@ brew install redis
 
 
 # ---------------------------------------------
-# Misc
+# Useful tools
 # ---------------------------------------------
-
-# My favorite text editor
-brew cask install visual-studio-code
-
-# Zsh 
-brew install zsh
 
 # Make requests with awesome response formatting
 brew install httpie
@@ -73,6 +67,42 @@ brew install tree
 
 # tmux :'D 
 brew install tmux
+
+# gdb
+brew install gdb
+
+
+# ---------------------------------------------
+# Misc
+# ---------------------------------------------
+
+# My favorite text editor
+brew cask install visual-studio-code
+
+# Zsh 
+brew install zsh
+
+# The Fire Code font
+# https://github.com/tonsky/FiraCode
+# This method of installation is
+# not officially supported, might install outdated version
+# Change font in terminal preferences
+brew tap caskroom/fonts
+brew cask install font-fira-code
+
+
+# ---------------------------------------------
+# Terminal gimmicks xD
+# ---------------------------------------------
+
+# The computer fortune teller 
+brew install fortune
+
+# The famous cowsay
+brew install cowsay
+
+# Multicolored text output
+brew install lolcat
 
 
 # Remove outdated versions from the cellar

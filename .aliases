@@ -5,7 +5,9 @@
 alias home='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
 alias '?=man'
+alias ls='ls -A'
 
 
 # ---------------------------------
