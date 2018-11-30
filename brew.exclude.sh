@@ -18,6 +18,9 @@ brew update
 # Upgrade any already-installed formulae
 brew upgrade
 
+# Core Utils
+brew install coreutils
+
 
 # ---------------------------------------------
 # Programming Languages and Frameworks
@@ -28,6 +31,9 @@ brew install node
 
 # Python 3
 brew install python
+
+# Golang
+brew install go
 
 
 # ---------------------------------------------

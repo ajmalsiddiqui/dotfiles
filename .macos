@@ -1,0 +1,14 @@
+# Making my Mac truly mine :')
+
+SCREENSHOT_FOLDER=~/Desktop/Screenshots
+
+mkdir -p $SCREENSHOT_FOLDER
+
+# Set the default file format for screenshots to png
+defaults write com.apple.screencapture type png
+
+# Set default screenshot location to a specific folder
+defaults write com.apply.screencapture location $SCREENSHOT_FOLDER
+
+# Show hidden files by default in the Finder
+defaults write com.apple.finder AppleShowAllFiles -bool TRUE
