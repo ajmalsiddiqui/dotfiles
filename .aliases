@@ -8,7 +8,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias '?=man'
 alias ls='ls -A'
-alias ps-grep = 'ps aux | grep'
+alias ps-grep='ps aux | grep'
 
 
 # ---------------------------------
