@@ -8,6 +8,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias '?=man'
 alias ls='ls -A'
+alias ps-grep = 'ps aux | grep'
 
 
 # ---------------------------------
@@ -25,6 +26,7 @@ alias g='git'
 alias nr='npm run'
 alias ni='npm install'
 alias nid='npm install -D'
+alias nip='npm install --only=prod'
 
 
 # ---------------------------------
