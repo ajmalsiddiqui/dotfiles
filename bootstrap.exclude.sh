@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+source .exports
 
 # Initialize a few things
 init () {

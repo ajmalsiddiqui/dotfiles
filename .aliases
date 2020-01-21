@@ -35,7 +35,7 @@ alias nip='npm install --only=prod'
 
 # Create a virtualenv with python3 as the interpreter
 # I usually name my virtualenv .venv
-alias venv='virtualenv -p /usr/local/bin/python3 .venv'
+alias venv="virtualenv -p $( which python3 ) .venv"
 alias vac='source .venv/bin/activate'
 
 # ---------------------------------
