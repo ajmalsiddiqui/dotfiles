@@ -1,12 +1,13 @@
 #!/bin/bash
 
+PROMPT='[bootstrap]'
 source .exports
 
 # Initialize a few things
 init () {
-	echo "Making a Projects folder in $PATH_TO_PROJECTS if it doesn't already exist"
+	echo "$PROMPT Making a Projects folder in $PATH_TO_PROJECTS if it doesn't already exist"
 	mkdir -p "$PATH_TO_PROJECTS"
-	echo "Making a Playground folder in $PATH_TO_PLAYGROUND if it doesn't already exist"
+	echo "$PROMPT Making a Playground folder in $PATH_TO_PLAYGROUND if it doesn't already exist"
 	mkdir -p "$PATH_TO_PLAYGROUND"
 }
 
@@ -14,8 +15,8 @@ init () {
 # Is this where rsync shines?
 # TODO - add support for -f and --force
 link () {
-	echo "This utility will symlink the files in this repo to the home directory"
-	echo "Proceed? (y/n)"
+	echo "$PROMPT This utility will symlink the files in this repo to the home directory"
+	echo "$PROMPT Proceed? (y/n)"
 	read resp
 	# TODO - regex here?
 	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
@@ -23,27 +24,44 @@ link () {
 			ln -sv "$PWD/$file" "$HOME"
 		done
 		# TODO: source files here?
-		echo "Symlinking complete"
+		echo "$PROMPT Symlinking complete"
 	else
-		echo "Symlinking cancelled by user"
+		echo "$PROMPT Symlinking cancelled by user"
 		return 1
 	fi
 }
 
 install_tools () {
 	if [ $( echo "$OSTYPE" | grep 'darwin' ) ] ; then
-		echo "This utility will install useful utilities using Homebrew"
-		echo "Proceed? (y/n)"
+		echo "$PROMPT Detected macOS"
+		echo "$PROMPT This utility will install useful utilities using Homebrew"
+		echo "$PROMPT Proceed? (y/n)"
 		read resp
 		# TODO - regex here?
 		if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
-			echo "Installing useful stuff using brew. This may take a while..."
+			echo "$PROMPT Installing useful stuff using brew. This may take a while..."
 			sh brew.exclude.sh
 		else
-			echo "Brew installation cancelled by user"
+			echo "$PROMPT Brew installation cancelled by user"
 		fi
 	else
-		echo "Skipping installations using Homebrew because MacOS was not detected..."
+		echo "$PROMPT Skipping installations using Homebrew because MacOS was not detected..."
+	fi
+
+	if [ $( echo "$OSTYPE" | grep 'linux-gnu' ) ] ; then
+		echo "$PROMPT Detected Linux"
+		echo "$PROMPT This utility will install useful utilities using apt (this has been tested on Debian buster)"
+		echo "$PROMPT Proceed? (y/n)"
+		read resp
+		# TODO - regex here?
+		if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
+			echo "$PROMPT Installing useful stuff using apt. This may take a while..."
+			sh apt.exclude.sh
+		else
+			echo "$PROMPT Apt installation cancelled by user"
+		fi
+	else
+		echo "$PROMPT Skipping installations using apt because Debian/Linux was not detected..."
 	fi
 }
 
