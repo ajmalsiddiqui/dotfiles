@@ -77,6 +77,8 @@ sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gp
 apt install apt-transport-https -y
 apt update
 apt install code -y
+echo "$PROMPT VS Codes adds some GPG key during its install. Removing it!"
+rm packages.microsoft.gpg
 
 # ---------------------------------------------
 # Terminal gimmicks xD
