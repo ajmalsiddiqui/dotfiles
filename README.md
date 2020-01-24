@@ -43,6 +43,11 @@ Like everyone else who customizes their dotfiles, I have my own way of doing thi
 
 I like to explore new languages, frameworks and technologies. Hence, I have a folder called playground on my Desktop where I experiment with stuff. The `play` command makes a new folder in here and cd's into it (PATH_TO_PLAYGROUND is the corresponding variable). This is again something you should customize to suit your own needs (or remove entirely).
 
+### Update (24 Jan, 2020)
+I've finally gotten around to playing with a Linux distro! Debian it is! This transition is reflected in the new `apt.exclude.sh` file that installs packages on Debian/Ubuntu, and the `bootstrap.exclude.sh` now does some (super crude) OS detection and automatically uses the right installation script depending on whether you're running it on macOS or on Linux. I wouldn't advise running the `bootstrap.exclude.sh` script on a Linux distro that doesn't use apt (or on a non-Debian system honestly) since this hasn't been tested at all.
+
+Exciting things to come now that I'm playing with Debian! :D
+
 ## Acknowledgements
 
 
