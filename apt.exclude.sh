@@ -45,6 +45,9 @@ echo "$PROMPT Verifying docker installation using a hello world container..."
 # Verify the installaiton
 docker run hello-world
 
+# Docker Compose
+apt install docker-compose -y
+
 # Vim B)
 apt install vim -y
 
