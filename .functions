@@ -31,11 +31,12 @@ project () {
 # This desperately needs flags to exclude dirs
 grep_dir() {
   for i in $( ls ) ; do
-    if [ -d $i ] ; then
-      cd $i && grep_dir
+    if [ -d "$i" ] ; then
+      cd "$i" && grep_dir "$1" 
       cd ..
+    else
+      grep "$1" "$i"
     fi
-    grep $1 $i
   done
 }
 
