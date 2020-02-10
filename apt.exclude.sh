@@ -44,12 +44,6 @@ apt install docker-ce docker-ce-cli containerd.io -y
 echo "$PROMPT Verifying docker installation using a hello world container..."
 # Verify the installaiton
 docker run hello-world
-# Add current user to the 'docker' group
-echo "$PROMPT Creating group 'docker' if it doesn't exist..."
-# The -f flag forces the group to get created, but I honestly don't know if it kicks out existing members or something :'(
-groupadd -f docker
-echo "$PROMPT Adding current user to 'docker' group"
-usermod -aG docker "$USER"
 
 # Docker Compose
 apt install docker-compose -y
