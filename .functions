@@ -7,23 +7,36 @@
 # without making a full fledged project
 # This creates a new playground with the name given as a command line arg
 play () {
-	# TODO : redirect io to /dev/null and write custom messages
-	if [ $# -lt 1 ] ; then
-		cd "$PATH_TO_PLAYGROUND" && echo 'In playground'
-	fi
-	mkdir -p $PATH_TO_PLAYGROUND/$1 && cd $PATH_TO_PLAYGROUND/$1
-	echo "In playground $1" 
+        # TODO : redirect io to /dev/null and write custom messages
+        if [ $# -lt 1 ] ; then
+                cd "$PATH_TO_PLAYGROUND" && echo 'In playground'
+        fi
+        mkdir -p $PATH_TO_PLAYGROUND/$1 && cd $PATH_TO_PLAYGROUND/$1
+        echo "In playground $1" 
 }
 
 # Create a new project and cd into it, does NOT check if project already exists
 project () {
-	# TODO : redirect io to /dev/null and write custom messages
+        # TODO : redirect io to /dev/null and write custom messages
         if [ $# -lt 1 ] ; then
                 cd "$PATH_TO_PROJECTS" && echo 'In Projects'
         fi
 
         mkdir -p "$PATH_TO_PROJECTS/$1" && cd "$PATH_TO_PROJECTS/$1"
         echo "In project $1"
+}
+
+# Grep thorughout the files in a dir
+# Use this one carefully if you have subdirs filled with shit
+# This desperately needs flags to exclude dirs
+grep_dir() {
+  for i in $( ls ) ; do
+    if [ -d $i ] ; then
+      cd $i && grep_dir
+      cd ..
+    fi
+    grep $1 $i
+  done
 }
 
 # This should be the last line of the file
