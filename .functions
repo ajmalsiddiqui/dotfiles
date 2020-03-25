@@ -29,13 +29,14 @@ project () {
 # Grep thorughout the files in a dir
 # Use this one carefully if you have subdirs filled with shit
 # This desperately needs flags to exclude dirs
+# TODO add support for grep flags by passing $@ to the grep function, or something like that
 grep_dir() {
   for i in $( ls ) ; do
     if [ -d "$i" ] ; then
       cd "$i" && grep_dir "$1" 
       cd ..
     else
-      grep "$1" "$i"
+      grep "$1" "$i" && echo -e "Filename: $( pwd )/$i\n"
     fi
   done
 }
