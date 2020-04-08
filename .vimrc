@@ -14,3 +14,5 @@ set cursorline  "highlight current line (vim shows a horizontal line under the c
 set incsearch "search as characters are entered"
 set hlsearch  "highlight matches"
 
+autocmd vimenter * NERDTree "Start NERDTree whenever vim is fired up
+

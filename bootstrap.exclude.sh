@@ -65,6 +65,11 @@ install_tools () {
 	fi
 }
 
+bootstrap_vim() {
+  ./vim.bootstrap.exclude.sh
+}
+
 init
 link
 install_tools
+bootstrap_vim
