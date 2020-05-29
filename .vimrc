@@ -1,5 +1,8 @@
 "My configuration file for vim
 
+" The molokai colourscheme should be installed via the vim.bootstrap.exclude.sh file
+colorscheme molokai
+
 syntax on	          "syntax highlighting
 
 set number          "turns on line numbering

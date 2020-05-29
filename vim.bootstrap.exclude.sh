@@ -4,11 +4,23 @@
 
 PROMPT='[ VimBootstrapper ]'
 
+echo_with_prompt () {
+  echo "$PROMPT $@"
+}
+
+echo_with_prompt "Initializing .vim directory"
+mkdir -p ~/.vim
+
+echo_with_prompt "Installing the color scheme"
+mkdir -p ~/.vim/colors
+curl https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim > ~/.vim/colors/molokai.vim
+
 # Install the NERDTree plugin
-echo "$PROMPT Installing NERDTree..."
+echo_with_prompt "Installing NERDTree..."
+mkdir -p ~/.vim/pack/vendor/start/nerdtree
 git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
 vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
-echo "$PROMPT NERDTree has been installed!"
+echo_with_prompt "NERDTree has been installed!"
 
-echo "$PROMPT Done!"
+echo_with_prompt "Done!"
 
