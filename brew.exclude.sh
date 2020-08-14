@@ -93,9 +93,6 @@ brew install zsh
 brew tap caskroom/fonts
 brew cask install font-fira-code
 
-# My favorite text editor
-brew cask install visual-studio-code
-
 
 # ---------------------------------------------
 # Terminal gimmicks xD

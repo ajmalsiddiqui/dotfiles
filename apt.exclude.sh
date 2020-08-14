@@ -15,6 +15,14 @@ apt upgrade -y
 
 
 # ---------------------------------------------
+# Basic Utilities
+# ---------------------------------------------
+
+# This installs dig, among other things
+apt install dnsutils -y
+
+
+# ---------------------------------------------
 # Programming Languages and Frameworks
 # ---------------------------------------------
 
@@ -49,7 +57,7 @@ docker run hello-world
 apt install docker-compose -y
 
 # Vim B)
-apt install vim -y
+apt install vim-gtk -y
 
 # Make requests with awesome response formatting
 apt install httpie -y
@@ -72,16 +80,6 @@ echo "$PROMPT This script (intentionally) does not install the Oh-my-zsh framewo
 # The Fire Code font
 apt install fonts-firacode -y
 
-# My favorite text editor: VS Code
-# Installation instructions: https://code.visualstudio.com/docs/setup/linux
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
-sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-apt install apt-transport-https -y
-apt update
-apt install code -y
-echo "$PROMPT VS Codes adds some GPG key during its install. Removing it!"
-rm packages.microsoft.gpg
 
 # ---------------------------------------------
 # Terminal gimmicks xD
