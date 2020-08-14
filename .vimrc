@@ -20,19 +20,21 @@ set cursorline  "highlight current line (vim shows a horizontal line under the c
 set incsearch "search as characters are entered"
 set hlsearch  "highlight matches"
 
-autocmd vimenter * NERDTree "Start NERDTree whenever vim is fired up
-
-"Close vim automatically if NERDTree is the only window left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif 
-
 " Status line
-:set statusline=%f      " path to the file
-:set statusline+=\ -\   " seperator (<space>-<space>)
-:set statusline+=%y     " filetype
-:set statusline+=%=     " switch to the right side
-:set statusline+=%l     " current line number
-:set statusline+=/      " seperator
-:set statusline+=%l     " total lines
+set statusline=%f      " path to the file
+set statusline+=\ -\   " seperator (<space>-<space>)
+set statusline+=%y     " filetype
+set statusline+=%=     " switch to the right side
+set statusline+=%l     " current line number
+set statusline+=/      " seperator
+set statusline+=%L     " total lines
+
+" Always show statusline
+" Setting this to 0 disables it
+" 1 - Only when more than 1 window is present
+" 2 - always
+set laststatus=2
+
 
 " mappings
 let mapleader = "\""
@@ -52,11 +54,21 @@ nnoremap L $
 inoremap <esc> <nop>
 inoremap jk <esc>
 
+
 " when you use the autocmd command, vim essentially adds a new command
 " even if the exact same command was already defined, it isn't overwritten
 " so every time you source your .vimrc, the number of duplicate autocmd commands increases by 1
 " by grouping autocommands into an augroup, and using autocmd! (to clear the autocmds inside the group)
 " we ensure that there are no duplicates
+augroup nerdtree
+  autocmd!
+  "Start NERDTree whenever vim is fired up
+  autocmd vimenter * NERDTree 
+
+  "Close vim automatically if NERDTree is the only window left
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif 
+augroup end
+
 augroup filetype_python
   autocmd!
   " comment out a single line of python code in normal mode
