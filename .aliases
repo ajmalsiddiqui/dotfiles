@@ -48,6 +48,16 @@ alias hc='heroku create'
 alias gphm='git push heroku master'
 
 
+# ---------------------------------
+# Aliases for tmux
+# ---------------------------------
+
+# Create a three pane split with two "minor" panes
+alias ide='tmux split-window -h && tmux split-window && tmux resize-pane -R 50'
+# Revert from the three pane split into a single pane
+# -a kills all panes except the one specified by -t, and 0 is the first pane made (and hence the main pane)
+alias xide='tmux kill-pane -a -t 0'
+
 # This should be the last line of the file
 # For local changes
 # Don't make edits below this
