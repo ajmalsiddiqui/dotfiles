@@ -1,4 +1,4 @@
-"My configuration file for vim
+" My configuration file for vim
 
 " The molokai colourscheme should be installed via the vim.bootstrap.exclude.sh file
 colorscheme molokai
@@ -37,18 +37,33 @@ set laststatus=2
 
 
 " mappings
-let mapleader = "\""
+" To make sure that space doesn't have any mappings beforehand (and to disable the default function of space)
+nnoremap <space> <nop>
+let mapleader = "\<space>"
+
+" Note - the "nore" in nnoremap stands for "no-recursive" which prevents the mappings from executing recursively
 
 " edit the vimrc on demand
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-" and source the vimrc when needed
-nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " toggle nerdtree on/off. make life cleaner.
 nnoremap <leader>f :NERDTreeToggle<cr>
 
 nnoremap H ^
 nnoremap L $
+
+" Split windows
+nnoremap <leader>s :split<cr><C-w>w
+nnoremap <leader>v :vsplit<cr><C-w>w
+" Shortcuts to switch between windows
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+nnoremap <C-h> <C-w>h
+
+" Move between tabs quickly
+nnoremap <tab> :tabn<cr>
+nnoremap <s-tab> :tabp<cr>
 
 " to unlearn the stupid habit of pressing <esc> again and again :3
 inoremap <esc> <nop>
