@@ -27,6 +27,23 @@ project () {
 }
 
 
+# Create a useful tmux split which has 3 panes
+# One of which is the main pane and the other two are smaller
+ide () {
+  # Get the width of the screen
+  screen_width=$( tmux display -p '#{window_width}')
+  # The small panes will be a third the width of the window
+  small_pane_width=$( expr "$screen_width" / 3 )
+
+  # Split into two halves horizontally
+  tmux split-window -h
+  # Split the second half into two halves. These are the small panes
+  tmux split-window
+  # Resize the small panes
+  tmux resize-pane -x $small_pane_width
+}
+
+
 # This should be the last line of the file
 # For local changes
 # Don't make edits below this
