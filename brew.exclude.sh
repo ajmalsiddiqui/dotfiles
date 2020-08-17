@@ -49,6 +49,9 @@ brew install yarn
 # Docker for containerization
 brew install docker
 
+# htop
+brew install htop
+
 
 # ---------------------------------------------
 # Database Systems I use Often

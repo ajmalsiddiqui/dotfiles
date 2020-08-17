@@ -68,6 +68,9 @@ apt install tree -y
 # tmux :'D 
 apt install tmux -y
 
+# Htop
+apt install htop -y
+
 
 # ---------------------------------------------
 # Misc
