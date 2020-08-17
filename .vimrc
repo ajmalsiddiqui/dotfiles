@@ -86,9 +86,7 @@ augroup end
 
 augroup filetype_python
   autocmd!
-  " comment out a single line of python code in normal mode
-  autocmd filetype python nnoremap <leader>c ^i#<esc>
-  " select stuff in visual block mode only and comment it all out
-  autocmd filetype python vnoremap <leader>c i#<esc><esc>
+  " Comment string. Used by commentary.
+  autocmd filetype python setlocal commentstring=#\ %s
 augroup end
 
