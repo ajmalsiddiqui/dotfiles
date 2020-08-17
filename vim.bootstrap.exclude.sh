@@ -22,5 +22,12 @@ git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/ner
 vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
 echo_with_prompt "NERDTree has been installed!"
 
+# Install the commentary plugin
+echo_with_prompt "Installing Commentary..."
+mkdir -p ~/.vim/pack/tpope/start
+git clone https://tpope.io/vim/commentary.git ~/.vim/pack/tpope/start/commentary
+vim -u NONE -c "helptags ~/.vim/pack/tpope/start/commentary/doc" -c q
+echo_with_prompt "Commentary has been installed"
+
 echo_with_prompt "Done!"
 
