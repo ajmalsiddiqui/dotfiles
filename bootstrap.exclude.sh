@@ -20,7 +20,7 @@ link () {
 	read resp
 	# TODO - regex here?
 	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
-		for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|.*.md' ) ; do
+		for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|\.gitmodules|.*.md' ) ; do
 			ln -sv "$PWD/$file" "$HOME"
 		done
 		# TODO: source files here?
@@ -66,7 +66,16 @@ install_tools () {
 }
 
 bootstrap_vim() {
-  ./vim.bootstrap.exclude.sh
+	echo "$PROMPT This utility will bootstrap vim with plugins and the like"
+	echo "$PROMPT Proceed? (y/n)"
+	read resp
+	# TODO - regex here?
+	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
+    sh vim.bootstrap.exclude.sh
+		echo "$PROMPT Vim bootstrapping complete"
+	else
+		echo "$PROMPT Vim bootstrapping cancelled by user"
+	fi
 }
 
 init
