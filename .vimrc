@@ -36,6 +36,10 @@ set statusline+=%L     " total lines
 set laststatus=2
 
 
+" Show hidden files (dotfiles) by default in NERDTree
+let NERDTreeShowHidden=1
+
+
 " mappings
 " To make sure that space doesn't have any mappings beforehand (and to disable the default function of space)
 nnoremap <space> <nop>
