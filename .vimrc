@@ -20,6 +20,10 @@ set cursorline  "highlight current line (vim shows a horizontal line under the c
 set incsearch "search as characters are entered"
 set hlsearch  "highlight matches"
 
+" Use the unnamed register for manipulating the clipboard
+" This means that cutting and yanking uses the clipboard, and so does pasting
+set clipboard^=unnamedplus
+
 " Status line
 set statusline=%f      " path to the file
 set statusline+=\ -\   " seperator (<space>-<space>)
@@ -34,6 +38,11 @@ set statusline+=%L     " total lines
 " 1 - Only when more than 1 window is present
 " 2 - always
 set laststatus=2
+
+" Set updatetime (default of 4000 ms is too much)
+" Note that this affects the frequency with which vim updates the swapfile
+" This improves experience with gitgutter
+set updatetime=200
 
 
 " Show hidden files (dotfiles) by default in NERDTree
