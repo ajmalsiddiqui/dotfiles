@@ -20,6 +20,11 @@ set cursorline  "highlight current line (vim shows a horizontal line under the c
 set incsearch "search as characters are entered"
 set hlsearch  "highlight matches"
 
+" Enable autointendation
+set autoindent
+" Tries to do the right thing based on the program/filetype
+set smartindent
+
 " Use the unnamed register for manipulating the clipboard
 " This means that cutting and yanking uses the clipboard, and so does pasting
 set clipboard^=unnamedplus

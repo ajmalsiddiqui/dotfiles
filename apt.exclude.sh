@@ -21,6 +21,9 @@ apt upgrade -y
 # This installs dig, among other things
 apt install dnsutils -y
 
+# Strace
+apt install strace -y
+
 
 # ---------------------------------------------
 # Programming Languages and Frameworks
