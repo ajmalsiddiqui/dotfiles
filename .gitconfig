@@ -18,3 +18,8 @@
 [user]
 	email = ajmalsiddiqui21@gmail.com
 	name = Mohammed Ajmal Siddiqui
+
+# Don't add any configuration below this line
+# This is to support a local gitconfig file
+[include]
+  path = .gitconfig.local
