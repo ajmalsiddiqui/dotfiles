@@ -24,9 +24,11 @@ link () {
   done
 }
 
+# TODO rewrite this to check for os=unknown, use the execute_func_with_prompt wrapper, etc
 install_tools () {
-	if [ $( echo "$OSTYPE" | grep 'darwin' ) ] ; then
-		echo_with_prompt "Detected macOS"
+  local os=$(get_os)
+	if [ "$os" = 'darwin' ] ; then
+    echo_with_prompt "Detected OS macOS"
 		echo_with_prompt "This utility will install useful utilities using Homebrew"
 		echo_with_prompt "Proceed? (y/n)"
 		read resp
@@ -41,8 +43,8 @@ install_tools () {
 		echo_with_prompt "Skipping installations using Homebrew because MacOS was not detected..."
 	fi
 
-	if [ $( echo "$OSTYPE" | grep 'linux-gnu' ) ] ; then
-		echo_with_prompt "Detected Linux"
+	if [ "$os" = 'debian' ] ; then
+    echo_with_prompt "Detected OS $os"
 		echo_with_prompt "This utility will install useful utilities using apt (this has been tested on Debian buster)"
 		echo_with_prompt "Proceed? (y/n)"
 		read resp
