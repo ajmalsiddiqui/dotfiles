@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source utils.exclude.sh
+. "$( pwd )/utils.exclude.sh"
 
 PROMPT='[ Bootstrap ]'
 
@@ -18,20 +18,10 @@ init () {
 # Is this where rsync shines?
 # TODO - add support for -f and --force
 link () {
-	echo_with_prompt "This utility will symlink the files in this repo to the home directory"
-	echo_with_prompt "Proceed? (y/n)"
-	read resp
-	# TODO - regex here?
-	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
-		for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|\.gitmodules|.*.md' ) ; do
-			ln -sv "$PWD/$file" "$HOME"
-		done
-		# TODO: source files here?
-		echo_with_prompt "Symlinking complete"
-	else
-		echo_with_prompt "Symlinking cancelled by user"
-		return 1
-	fi
+  for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|\.gitmodules|.*.md' ) ; do
+    # Silently ignore errors here because the files may already exist
+    ln -sv "$PWD/$file" "$HOME" || true
+  done
 }
 
 install_tools () {
@@ -69,19 +59,16 @@ install_tools () {
 }
 
 bootstrap_vim() {
-	echo_with_prompt "This utility will bootstrap vim with plugins and the like"
-	echo_with_prompt "Proceed? (y/n)"
-	read resp
-	# TODO - regex here?
-	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
-    sh vim.bootstrap.exclude.sh
-		echo_with_prompt "Vim bootstrapping complete"
-	else
-		echo_with_prompt "Vim bootstrapping cancelled by user"
-	fi
+  # TODO consider sourcing this file
+  sh vim.bootstrap.exclude.sh
 }
 
 init
-link
+execute_func_with_prompt link "symlink everything"
 install_tools
-bootstrap_vim
+execute_func_with_prompt bootstrap_vim "bootstrap vim with plugins and the like"
+
+# Hack to make sure this script always exits successfully
+# Since the user may choose to cancel a step here and that is cool
+# TODO rethink this system :p
+true
