@@ -2,11 +2,9 @@
 
 # Bootstrap a few things (install plugins and stuff) for vim config
 
-PROMPT='[ VimBootstrapper ]'
+source utils.exclude.sh
 
-echo_with_prompt () {
-  echo "$PROMPT $@"
-}
+PROMPT='[ VimBootstrapper ]'
 
 echo_with_prompt "Installing the color scheme"
 mkdir -p ~/.vim/colors

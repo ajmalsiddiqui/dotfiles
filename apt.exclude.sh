@@ -2,9 +2,11 @@
 
 # Install my favourite tools using the apt package manager (currently tested only on Debian buster)
 
-PROMPT='[apt-install]'
+source utils.exclude.sh
 
-echo "$PROMPT I hope you're running this script as root!"
+PROMPT='[ AptBootstrapper ]'
+
+echo_with_prompt "I hope you're running this script as root!"
 
 
 # Update apt
@@ -52,7 +54,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 apt update -y
 apt install docker-ce docker-ce-cli containerd.io -y
-echo "$PROMPT Verifying docker installation using a hello world container..."
+echo_with_prompt "Verifying docker installation using a hello world container..."
 # Verify the installaiton
 docker run hello-world
 
@@ -81,7 +83,7 @@ apt install htop -y
 
 # Zsh 
 apt install zsh -y
-echo "$PROMPT This script (intentionally) does not install the Oh-my-zsh framework. If you want it, install it manually!"
+echo_with_prompt "This script (intentionally) does not install the Oh-my-zsh framework. If you want it, install it manually!"
 
 # The Fire Code font
 apt install fonts-firacode -y

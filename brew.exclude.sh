@@ -2,13 +2,15 @@
 
 # Install command-line tools using Homebrew.
 
+source utils.exclude.sh
+
 # Install homebrew if it is not installed
 which brew 1>&/dev/null
 if [ ! "$?" -eq 0 ] ; then
-	echo "Homebrew not installed. Attempting to install Homebrew"
+	echo_with_prompt "Homebrew not installed. Attempting to install Homebrew"
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	if [ ! "$?" -eq 0 ] ; then
-		echo "Something went wrong. Exiting..." && exit 1
+		echo_with_prompt "Something went wrong. Exiting..." && exit 1
 	fi
 fi
 
