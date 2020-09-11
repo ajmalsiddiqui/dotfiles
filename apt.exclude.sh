@@ -2,7 +2,7 @@
 
 # Install my favourite tools using the apt package manager (currently tested only on Debian buster)
 
-source utils.exclude.sh
+. "$( pwd )/utils.exclude.sh"
 
 PROMPT='[ AptBootstrapper ]'
 

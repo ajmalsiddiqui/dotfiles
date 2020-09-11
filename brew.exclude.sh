@@ -2,7 +2,7 @@
 
 # Install command-line tools using Homebrew.
 
-source utils.exclude.sh
+. "$( pwd )/utils.exclude.sh"
 
 # Install homebrew if it is not installed
 which brew 1>&/dev/null
