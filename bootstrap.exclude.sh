@@ -60,13 +60,19 @@ install_tools () {
 
 bootstrap_vim() {
   # TODO consider sourcing this file
-  sh vim.bootstrap.exclude.sh
+  "$( pwd )/vim.bootstrap.exclude.sh"
+}
+
+bootstrap_crontab() {
+  # TODO consider sourcing this file
+  "$( pwd )/crontab.bootstrap.exclude.sh"
 }
 
 init
 execute_func_with_prompt link "symlink everything"
 install_tools
 execute_func_with_prompt bootstrap_vim "bootstrap vim with plugins and the like"
+execute_func_with_prompt bootstrap_crontab "bootstrap the crontab"
 
 # Hack to make sure this script always exits successfully
 # Since the user may choose to cancel a step here and that is cool
