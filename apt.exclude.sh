@@ -26,6 +26,9 @@ apt install dnsutils -y
 # Strace
 apt install strace -y
 
+# Network tools, including netstat
+apt install net-tools -y
+
 
 # ---------------------------------------------
 # Programming Languages and Frameworks
@@ -38,6 +41,10 @@ apt install nodejs -y
 add-apt-repository ppa:longsleep/golang-backports
 apt update -y
 apt install golang-go -y
+
+# Clojure and Leiningen
+apt install clojure -y
+apt install leiningen -y
 
 
 # ---------------------------------------------
@@ -75,6 +82,9 @@ apt install tmux -y
 
 # Htop
 apt install htop -y
+
+# AWS CLI
+apt install awscli -y
 
 
 # ---------------------------------------------
