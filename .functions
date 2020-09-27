@@ -8,10 +8,20 @@
 # This creates a new playground with the name given as a command line arg
 play () {
         # TODO : redirect io to /dev/null and write custom messages
-        if [ $# -lt 1 ] ; then
+        if [ "$#" -lt 1 ] ; then
                 cd "$PATH_TO_PLAYGROUND" && echo 'In playground'
         fi
-        mkdir -p $PATH_TO_PLAYGROUND/$1 && cd $PATH_TO_PLAYGROUND/$1
+
+        mkdir -p "$PATH_TO_PLAYGROUND/$1" && cd "$PATH_TO_PLAYGROUND/$1"
+
+        if [ "$2" = "--autoremove" ] ; then
+          touch "$PATH_TO_PLAYGROUND/$1/.autoremove"
+        fi
+
+        if [ -e "$PATH_TO_PLAYGROUND/$1/.autoremove" ] ; then
+          echo "WARN: This playground will be deleted on the 1st of the coming month"
+        fi
+
         echo "In playground $1" 
 }
 
