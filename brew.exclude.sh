@@ -20,6 +20,11 @@ brew update
 # Upgrade any already-installed formulae
 brew upgrade
 
+
+# ---------------------------------------------
+# Basic Utilities
+# ---------------------------------------------
+
 # Core Utils
 brew install coreutils
 
@@ -37,13 +42,13 @@ brew install python
 # Golang
 brew install go
 
+# Clojure
+brew install clojure/tools/clojure
+
 
 # ---------------------------------------------
 # Tools I use often
 # ---------------------------------------------
-
-# Heroku 
-brew install heroku
 
 # Yarn - an alternative to npm
 brew install yarn
@@ -53,22 +58,6 @@ brew install docker
 
 # htop
 brew install htop
-
-
-# ---------------------------------------------
-# Database Systems I use Often
-# ---------------------------------------------
-
-# MongoDB :D
-brew install mongo
-
-# RedisDB
-brew install redis
-
-
-# ---------------------------------------------
-# Useful tools
-# ---------------------------------------------
 
 # Make requests with awesome response formatting
 brew install httpie
