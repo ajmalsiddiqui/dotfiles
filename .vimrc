@@ -25,6 +25,9 @@ set autoindent
 " Tries to do the right thing based on the program/filetype
 set smartindent
 
+set nobackup       "no backup files
+set noswapfile     "no swap files
+
 " Use the unnamed register for manipulating the clipboard
 " This means that cutting and yanking uses the clipboard, and so does pasting
 set clipboard^=unnamedplus
@@ -87,6 +90,9 @@ nnoremap <s-tab> :tabp<cr>
 inoremap <esc> <nop>
 inoremap jk <esc>
 
+" Quick way to add a TODO xD
+inoremap td <space>TODO<space>
+
 
 " when you use the autocmd command, vim essentially adds a new command
 " even if the exact same command was already defined, it isn't overwritten
@@ -95,9 +101,6 @@ inoremap jk <esc>
 " we ensure that there are no duplicates
 augroup nerdtree
   autocmd!
-  "Start NERDTree whenever vim is fired up
-  autocmd vimenter * NERDTree 
-
   "Close vim automatically if NERDTree is the only window left
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif 
 augroup end
