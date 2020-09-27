@@ -11,7 +11,11 @@
 PROMPT='[ CronBootstrapper ]'
 
 crons=(
+  # Automatically push the latest in my dotfiles to master
   "0 12 * * MON cd $HOME/dotfiles && git push origin master"
+  # Remove all directories that have a file called '.autoremove' on the first of every month
+  # The primary use case for this is to mark a playground directory for autoremoval before playing with it
+  '0 0 1 * * rm -r $( find $HOME -name '.autoremove' -exec dirname {} \; 2>/dev/null ) 2>/dev/null'
 )
 
 echo_crons() {
