@@ -3,6 +3,22 @@
 # TODO: find a better way than uname to distinguish between linux distros
 [ -f ".functions.$( uname )" ] && source ".functions.$( uname )"
 
+# Utility function to generate completions for files in a directory
+_dir_completions() {
+  # 1st argument $1 is the directory name
+  if [ -z "$1" ]; then
+    return
+  fi
+
+  # Only attempt completions if either only the command has been entered (i.e. 'play<tab>')
+  # or the command is followed by a single word (i.e. 'play grou<tab>')
+  if [ "${#COMP_WORDS[@]}" != "2" -a "${#COMP_WORDS[@]}" != "1" ]; then
+    return
+  fi
+
+  COMPREPLY=($(compgen -W "$(ls $1)" "${COMP_WORDS[1]}"))
+}
+
 # I use playgrounds to experiment with new languages and features
 # without making a full fledged project
 # This creates a new playground with the name given as a command line arg
@@ -24,6 +40,13 @@ play () {
 
         echo "In playground $1" 
 }
+
+# compspec for play
+_play_completions() {
+  _dir_completions "$PATH_TO_PLAYGROUND"
+}
+
+complete -F _play_completions play
 
 # Create a new project and cd into it, does NOT check if project already exists
 project () {
@@ -53,6 +76,12 @@ ide () {
   tmux resize-pane -x $small_pane_width
 }
 
+# compspec for project
+_project_completions() {
+  _dir_completions "$PATH_TO_PROJECTS"
+}
+
+complete -F _project_completions project
 
 # This should be the last line of the file
 # For local changes
