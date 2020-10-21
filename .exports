@@ -1,6 +1,7 @@
+export EDITOR=vim
 export PATH_TO_PLAYGROUND="$HOME/playground"
 export PATH_TO_PROJECTS="$HOME/Projects"
-export EDITOR=vim
+export PATH_TO_JOURNAL="$HOME/journal"
 
 # This should be the last line of the file
 # For local changes

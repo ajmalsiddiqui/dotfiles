@@ -12,6 +12,8 @@ init () {
 	mkdir -p "$PATH_TO_PROJECTS"
 	echo_with_prompt "Making a Playground folder in $PATH_TO_PLAYGROUND if it doesn't already exist"
 	mkdir -p "$PATH_TO_PLAYGROUND"
+	echo_with_prompt "Making a Playground folder in $PATH_TO_JOURNAL if it doesn't already exist"
+	mkdir -p "$PATH_TO_JOURNAL"
 }
 
 # TODO : Delete symlinks to deleted files

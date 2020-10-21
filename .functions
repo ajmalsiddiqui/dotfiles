@@ -83,6 +83,19 @@ _project_completions() {
 
 complete -F _project_completions project
 
+journal() {
+  curdir=$( pwd )
+  cd "$PATH_TO_JOURNAL"
+  vim "$1"
+  cd "$curdir"
+}
+
+_journal_completions() {
+  _dir_completions "$PATH_TO_JOURNAL"
+}
+
+complete -F _journal_completions journal
+
 # This should be the last line of the file
 # For local changes
 # Don't make edits below this
