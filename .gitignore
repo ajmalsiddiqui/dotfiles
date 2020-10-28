@@ -2,3 +2,5 @@
 *.local
 # This directory will be made by the vim.bootstrap.exclude.sh script
 .vim/colors
+# This file is obtained in the vim.bootstrap.exclude.sh script
+.vim/pack/plugins/start/fzf/plugin/fzf.vim

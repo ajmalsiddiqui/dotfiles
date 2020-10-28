@@ -8,9 +8,16 @@
 
 PROMPT='[ VimBootstrapper ]'
 
+VIM_PLUGINS_DIR="$HOME/.vim/pack/plugins/start"
+
 echo_with_prompt "Installing the color scheme"
 mkdir -p ~/.vim/colors
 curl https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim > ~/.vim/colors/molokai.vim
+
+# TODO figure out a cleaner way to do this
+echo_with_prompt "Installing the vim plugin for fzf..."
+mkdir -p "$VIM_PLUGINS_DIR/fzf/plugin"
+curl https://raw.githubusercontent.com/junegunn/fzf/master/plugin/fzf.vim > "$VIM_PLUGINS_DIR/fzf/plugin/fzf.vim"
 
 # Initialize plugins
 echo_with_prompt "Initializing plugin submodules"
