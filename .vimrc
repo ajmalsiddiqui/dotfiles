@@ -1,7 +1,15 @@
 " My configuration file for vim
 
+" Don't be like vi; be improved
+set nocompatible
+
 " The molokai colourscheme should be installed via the vim.bootstrap.exclude.sh file
 colorscheme molokai
+
+" Gives Vim access to a broader range of colours
+set termguicolors
+" Number of colors
+set t_Co=256
 
 syntax on	          "syntax highlighting
 
@@ -14,6 +22,9 @@ set shiftwidth=2
 set expandtab 
 
 set encoding=utf-8  "default text encoding is UTF-8
+
+" Minimal number of screen lines to keep above and below the cursor
+set scrolloff=10
 
 set cursorline  "highlight current line (vim shows a horizontal line under the current line)
 
