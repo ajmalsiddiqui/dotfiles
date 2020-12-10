@@ -11,7 +11,10 @@
 	co = checkout
 	
 	pom = push origin master
-	
+
+[pull]
+	rebase = true
+
 [url "https://github.com/"]
 	insteadOf = gh:
 
