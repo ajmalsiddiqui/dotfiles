@@ -124,6 +124,12 @@ augroup filetype_python
   autocmd filetype python setlocal commentstring=#\ %s
 augroup end
 
+augroup filetype_go
+  autocmd!
+  " Comment string. Used by commentary.
+  autocmd filetype go setlocal commentstring=//\ %s
+augroup end
+
 augroup filetype_markdown
   autocmd!
   " Enter Goyo mode with width 100

@@ -16,3 +16,6 @@
 [submodule ".vim/pack/plugins/start/goyo.vim"]
 	path = .vim/pack/plugins/start/goyo.vim
 	url = https://github.com/junegunn/goyo.vim
+[submodule ".vim/pack/plugins/start/vim-go"]
+	path = .vim/pack/plugins/start/vim-go
+	url = https://github.com/fatih/vim-go
