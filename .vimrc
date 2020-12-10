@@ -104,6 +104,8 @@ inoremap jk <esc>
 " Quick way to add a TODO xD
 inoremap td <space>TODO<space>
 
+" Used by the vim-markdown plugin to highlight YAML frontmatter as used by Hugo
+let g:vim_markdown_frontmatter = 1
 
 " when you use the autocmd command, vim essentially adds a new command
 " even if the exact same command was already defined, it isn't overwritten
@@ -122,3 +124,10 @@ augroup filetype_python
   autocmd filetype python setlocal commentstring=#\ %s
 augroup end
 
+augroup filetype_markdown
+  autocmd!
+  " Enter Goyo mode with width 100
+  autocmd filetype markdown Goyo 100
+  " Used by the vim-markdown plugin for some neat concealment
+  autocmd filetype markdown setlocal conceallevel=2
+augroup end
