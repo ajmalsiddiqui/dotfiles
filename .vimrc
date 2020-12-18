@@ -93,10 +93,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
 nnoremap <C-h> <C-w>h
 
-" Move between tabs quickly
-nnoremap <tab> :tabn<cr>
-nnoremap <s-tab> :tabp<cr>
-
 " to unlearn the stupid habit of pressing <esc> again and again :3
 inoremap <esc> <nop>
 inoremap jk <esc>
