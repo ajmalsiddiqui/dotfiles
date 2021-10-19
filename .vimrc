@@ -16,10 +16,10 @@ syntax on	          "syntax highlighting
 set number          "turns on line numbering
 set relativenumber  "turns on relative numbering
 
-"Tabs of width 2, convert tabs to spaces
-set tabstop=2 
-set shiftwidth=2
-set expandtab 
+"Tabs of width 4, convert tabs to spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 set encoding=utf-8  "default text encoding is UTF-8
 
