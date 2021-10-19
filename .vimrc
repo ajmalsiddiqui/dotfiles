@@ -103,7 +103,7 @@ inoremap <esc> <nop>
 inoremap jk <esc>
 
 " Quick way to add a TODO xD
-inoremap td <space>TODO<space>
+inoremap <space>td<space> <space>TODO<space>
 
 " Used by the vim-markdown plugin to highlight YAML frontmatter as used by Hugo
 let g:vim_markdown_frontmatter = 1
