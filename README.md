@@ -48,6 +48,11 @@ I've finally gotten around to playing with a Linux distro! Debian it is! This tr
 
 Exciting things to come now that I'm playing with Debian! :D
 
+### Update (25 Dec, 2020)
+Yep, I'm writing this in Oct 2021, so this is long overdue. I managed to completely nuke my Debian rig on the night before Christmas, and had to go for a fresh install. Took that as an opportunity to switch to Fedora!
+
+I might eventually add Fedora specific config here, but most things should work. Some don't.
+
 ## Acknowledgements
 
 
