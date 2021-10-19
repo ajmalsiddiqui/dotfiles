@@ -19,6 +19,8 @@ export HISTSIZE=10000
 export HISTFILESIZE=10000
 export HISTCONTROL=ignoredups
 
+export PATH="$PATH:$HOME/bin"
+
 # This should be the last line of the file
 # For local changes
 # Don't make edits below this
