@@ -16,4 +16,4 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 # This should be the last line of the file
 # For local changes
 # Don't make edits below this
-[ -f ".exports.local" ] && source ".exports.local"
+[ -f "$HOME/.exports.local" ] && source "$HOME/.exports.local"

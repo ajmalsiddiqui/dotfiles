@@ -59,4 +59,4 @@ alias xide='tmux kill-pane -a -t 0'
 # This should be the last line of the file
 # For local changes
 # Don't make edits below this
-[ -f ".aliases.local" ] && source ".aliases.local"
+[ -f "$HOME/.aliases.local" ] && source "$HOME/.aliases.local"
