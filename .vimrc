@@ -63,6 +63,11 @@ set laststatus=2
 " This improves experience with gitgutter
 set updatetime=200
 
+" Folding
+
+" Sets foldlevel when starting to edit a buffer in a window
+" 99 = no folds closed
+set foldlevelstart=99
 
 " Show hidden files (dotfiles) by default in NERDTree
 let NERDTreeShowHidden=1
