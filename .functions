@@ -96,6 +96,26 @@ _journal_completions() {
 
 complete -F _journal_completions journal
 
+YELLOW_BOLD='\033[33;1m'
+GREEN_BOLD='\033[32;1m'
+RED_BOLD='\033[31;1m'
+BLUE_BOLD='\033[36;1m'
+CLEAR='\033[0m'
+
+# This is quite sinful but is basically a grep with a sed that
+# Processes something like [TAG] Title Is Here
+# 1. Removes the ']' character from the TAG since the grep doesn't do so
+# 2. Replaces the TAG with a coloured version of the same thing based on
+#    status. The ugly printf stuff is to display the colors. The messy quoting
+#    should be discernable if you squint at it long enough
+# 3. Replaces the first space with a tag (notice the lack of the
+#    g option to the last sed command) to neatly align the tags and the titles
+#    in columns
+# This could've been an alias but honestly getting the quoting/escaping right was a real pain
+ls-project-ideas() {
+    grep -Po '^### \[\K([A-Z]*)].*$' "${PATH_TO_JOURNAL}/project-ideas.md" | sed 's/]//;s/TODO/'$(printf "${BLUE_BOLD}TODO${CLEAR}")'/;s/DOING/'$(printf "${YELLOW_BOLD}DOING${CLEAR}")'/;s/WONTDO/'$(printf "${RED_BOLD}WONTDO${CLEAR}")'/;s/DONE/'$(printf "${GREEN_BOLD}DONE${CLEAR}")'/;s/ /\t/'
+}
+
 # This should be the last line of the file
 # For local changes
 # Don't make edits below this
