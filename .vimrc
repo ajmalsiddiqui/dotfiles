@@ -1,7 +1,11 @@
 " My configuration file for vim
 
 " Don't be like vi; be improved
-set nocompatible
+" This must be first, because it changes other options as a side effect.
+" Avoid side effects when it was already reset.
+if &compatible
+  set nocompatible
+endif
 
 " The molokai colourscheme should be installed via the vim.bootstrap.exclude.sh file
 colorscheme molokai
@@ -78,6 +82,10 @@ let NERDTreeShowHidden=1
 nnoremap <space> <nop>
 let mapleader = "\<space>"
 
+" Don't use Ex mode, use Q for formatting.
+" Grabbed from defaults.vim
+map Q gq
+
 " Note - the "nore" in nnoremap stands for "no-recursive" which prevents the mappings from executing recursively
 
 " edit the vimrc on demand
@@ -88,6 +96,9 @@ nnoremap <leader>f :NERDTreeToggle<cr>
 
 nnoremap H ^
 nnoremap L $
+
+" Pop open a vertical terminal
+nnoremap <leader>t :vertical :terminal<cr>
 
 " Split windows
 nnoremap <leader>s :split<cr><C-w>w
