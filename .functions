@@ -16,7 +16,16 @@ _dir_completions() {
     return
   fi
 
-  COMPREPLY=($(compgen -W "$(ls $1)" "${COMP_WORDS[1]}"))
+  # The command in the substitution is a little convoluted; we're doing things
+  # like this to allow the function to return completions from multiple
+  # directories. Using the -l option to ls lists everything line by line along
+  # with a couple of lines of metadata (i.e. dir name, count). The NF > 8 in
+  # the awk invocation filters for those lines which contain more than 8
+  # fields, which filters out the metadata lines and leaves the long directory
+  # listing intact. From this, we print the 9th field, which contains the
+  # file/directory name. The xargs echo in the end converts from one file per
+  # line to a list of space separated files.
+  COMPREPLY=($(compgen -W "$(ls -l $@ | awk 'NF > 8 {print $9}' | xargs echo)" "${COMP_WORDS[1]}"))
 }
 
 # I use playgrounds to experiment with new languages and features
