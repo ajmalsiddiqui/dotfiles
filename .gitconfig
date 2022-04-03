@@ -9,11 +9,16 @@
 	ra = remote add
 	po = push origin
 	co = checkout
-	
-	pom = push origin master
+
+	fixup = commit --amend --no-edit
+
+	tinylog = log --all --graph --abbrev-commit --sparse --decorate --pretty=oneline
 
 [pull]
 	rebase = true
+
+[init]
+	defaultBranch = main
 
 [url "https://github.com/"]
 	insteadOf = gh:
@@ -25,4 +30,4 @@
 # Don't add any configuration below this line
 # This is to support a local gitconfig file
 [include]
-  path = .gitconfig.local
+	path = .gitconfig.local
