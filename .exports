@@ -1,7 +1,7 @@
 export EDITOR=vim
 export VISUAL="$EDITOR"
 export PATH_TO_PLAYGROUND="$HOME/playground"
-export PATH_TO_PROJECTS="$HOME/Projects"
+export PATH_TO_PROJECTS="$HOME/projects"
 export PATH_TO_JOURNAL="$HOME/journal"
 
 # less has coloured output, which also helps with manpages
