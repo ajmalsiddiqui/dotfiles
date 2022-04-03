@@ -40,9 +40,6 @@ set autoindent
 " Tries to do the right thing based on the program/filetype
 set smartindent
 
-set nobackup       "no backup files
-set noswapfile     "no swap files
-
 " Use the unnamed register for manipulating the clipboard
 " This means that cutting and yanking uses the clipboard, and so does pasting
 set clipboard^=unnamedplus
