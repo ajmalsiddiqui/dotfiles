@@ -141,8 +141,16 @@ augroup end
 
 augroup filetype_markdown
   autocmd!
+  " Spellings are important in documents
+  autocmd filetype markdown setlocal spell
   " Enter Goyo mode with width 100
   autocmd filetype markdown Goyo 100
   " Used by the vim-markdown plugin for some neat concealment
   autocmd filetype markdown setlocal conceallevel=2
+  autocmd filetype markdown set statusline=%f      " path to the file
+  autocmd filetype markdown set statusline+=\ -\   " seperator (<space>-<space>)
+  autocmd filetype markdown set statusline+=%y     " filetype
+  autocmd filetype markdown set statusline+=%=     " switch to the right side
+  autocmd filetype markdown set statusline+=%=     " switch to the right side
+  autocmd filetype markdown set statusline+=%{wordcount().words}\ words " word count
 augroup end
