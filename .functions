@@ -125,6 +125,10 @@ ls-project-ideas() {
     _ls_todo_list "${PATH_TO_JOURNAL}/project-ideas.md"
 }
 
+json-diff() {
+    diff <( jq --sort-keys . $1 ) <( jq --sort-keys . $2 )
+}
+
 # This should be the last line of the file
 # For local changes
 # Don't make edits below this
