@@ -48,13 +48,14 @@ set smartindent
 set clipboard^=unnamedplus
 
 " Status line
-set statusline=%f      " path to the file
-set statusline+=\ -\   " seperator (<space>-<space>)
-set statusline+=%y     " filetype
-set statusline+=%=     " switch to the right side
-set statusline+=%l     " current line number
-set statusline+=/      " seperator
-set statusline+=%L     " total lines
+set statusline=%f                           " path to the file
+set statusline+=\ -\                        " seperator (<space>-<space>)
+set statusline+=%y\                         " filetype
+set statusline+=%{StopwatchElapsedTime()}   " Elapsed time on the stopwatch
+set statusline+=%=                          " switch to the right side
+set statusline+=%l                          " current line number
+set statusline+=/                           " seperator
+set statusline+=%L                          " total lines
 
 " Always show statusline
 " Setting this to 0 disables it
@@ -72,6 +73,10 @@ set updatetime=200
 " Sets foldlevel when starting to edit a buffer in a window
 " 99 = no folds closed
 set foldlevelstart=99
+
+
+" The stopwatch plugin works best if the statusline is constantly refreshed
+call timer_start(1000, {-> execute(':let &stl=&stl')}, {'repeat': -1})
 
 " Show hidden files (dotfiles) by default in NERDTree
 let NERDTreeShowHidden=1
