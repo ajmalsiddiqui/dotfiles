@@ -14,6 +14,8 @@
 
 	tinylog = log --all --graph --abbrev-commit --sparse --decorate --pretty=oneline
 
+	prune-merged-branches = "!git branch --merged | sed 1d | xargs git branch -d"
+
 [pull]
 	rebase = true
 
