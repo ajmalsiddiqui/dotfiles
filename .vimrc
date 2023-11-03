@@ -25,6 +25,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+" Avoid the clutter of .swp files in the working dir
+set directory=/tmp
+
 set encoding=utf-8  "default text encoding is UTF-8
 
 " Minimal number of screen lines to keep above and below the cursor
@@ -94,8 +97,11 @@ nnoremap <leader>f :NERDTreeToggle<cr>
 nnoremap H ^
 nnoremap L $
 
-" Pop open a vertical terminal
-nnoremap <leader>t :vertical :terminal<cr>
+" Paste from the last yanked buffer
+nnoremap P "0p
+
+" Pop open a horizontal terminal
+nnoremap <leader>t :horizontal :terminal<cr>
 
 " Split windows
 nnoremap <leader>s :split<cr><C-w>w
