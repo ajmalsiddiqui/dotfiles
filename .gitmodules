@@ -19,3 +19,6 @@
 [submodule ".vim/pack/plugins/start/vim-go"]
 	path = .vim/pack/plugins/start/vim-go
 	url = https://github.com/fatih/vim-go
+[submodule ".vim/pack/plugins/start/vim-stopwatch"]
+	path = .vim/pack/plugins/start/vim-stopwatch
+	url = https://github.com/ajmalsiddiqui/vim-stopwatch
