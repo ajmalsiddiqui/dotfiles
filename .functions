@@ -35,11 +35,12 @@ play () {
         # TODO : redirect io to /dev/null and write custom messages
         if [ "$#" -lt 1 ] ; then
                 cd "$PATH_TO_PLAYGROUND" && echo 'In playground'
+                return
         fi
 
         mkdir -p "$PATH_TO_PLAYGROUND/$1" && cd "$PATH_TO_PLAYGROUND/$1"
 
-        if [ "$2" = "--autoremove" ] ; then
+        if [ "$2" = "--autoremove" -o "$2" = "-a" ] ; then
           touch "$PATH_TO_PLAYGROUND/$1/.autoremove"
         fi
 
