@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# TODO IMPORTANT: when you bootstrap with sudo, ownership of certain files becomes root
+# eg .vim/color, .vim/fzf, etc
+
 . "$( pwd )/utils.exclude.sh"
 
 PROMPT='[ Bootstrap ]'
