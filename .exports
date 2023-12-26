@@ -24,4 +24,4 @@ export PATH="$PATH:$HOME/bin"
 # This should be the last line of the file
 # For local changes
 # Don't make edits below this
-[ -f "$HOME/.exports.local" ] && source "$HOME/.exports.local"
+[ -f "$HOME/.exports.local" ] && source "$HOME/.exports.local" || true
