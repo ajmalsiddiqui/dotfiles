@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # TODO IMPORTANT: when you bootstrap with sudo, ownership of certain files becomes root
 # eg .vim/color, .vim/fzf, etc
 
@@ -25,44 +27,12 @@ init () {
 link () {
   for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|\.gitmodules|.*.md' ) ; do
     # Silently ignore errors here because the files may already exist
+    if [ -f "$HOME/$file" -a ! -L "$HOME/$file" ]; then
+        echo_with_prompt "Backing up $HOME/$file as $HOME/$file.bak"
+        mv "$HOME/$file" "$HOME/$file.bak"
+    fi
     ln -sv "$PWD/$file" "$HOME" || true
   done
-}
-
-# TODO rewrite this to check for os=unknown, use the execute_func_with_prompt wrapper, etc
-install_tools () {
-  local os=$(get_os)
-	if [ "$os" = 'darwin' ] ; then
-    echo_with_prompt "Detected OS macOS"
-		echo_with_prompt "This utility will install useful utilities using Homebrew"
-		echo_with_prompt "Proceed? (y/n)"
-		read resp
-		# TODO - regex here?
-		if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
-			echo_with_prompt "Installing useful stuff using brew. This may take a while..."
-			sh brew.exclude.sh
-		else
-			echo_with_prompt "Brew installation cancelled by user"
-		fi
-	else
-		echo_with_prompt "Skipping installations using Homebrew because MacOS was not detected..."
-	fi
-
-	if [ "$os" = 'debian' ] ; then
-    echo_with_prompt "Detected OS $os"
-		echo_with_prompt "This utility will install useful utilities using apt (this has been tested on Debian buster)"
-		echo_with_prompt "Proceed? (y/n)"
-		read resp
-		# TODO - regex here?
-		if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
-			echo_with_prompt "Installing useful stuff using apt. This may take a while..."
-			sh apt.exclude.sh
-		else
-			echo_with_prompt "Apt installation cancelled by user"
-		fi
-	else
-		echo_with_prompt "Skipping installations using apt because Debian/Linux was not detected..."
-	fi
 }
 
 bootstrap_vim() {
@@ -75,9 +45,9 @@ bootstrap_crontab() {
   "$( pwd )/crontab.bootstrap.exclude.sh"
 }
 
+test-bins git curl
 init
 execute_func_with_prompt link "symlink everything"
-install_tools
 execute_func_with_prompt bootstrap_vim "bootstrap vim with plugins and the like"
 execute_func_with_prompt bootstrap_crontab "bootstrap the crontab"
 
