@@ -2,11 +2,15 @@
 
 # Bootstrap a few things (install plugins and stuff) for vim config
 
+set -e
+
 # Note that sh doesn't have source (but does support . )
 # And I guess the absolute path is needed when executing via sh
 . "$( pwd )/utils.exclude.sh"
 
 PROMPT='[ VimBootstrapper ]'
+
+test-bins vim
 
 VIM_PLUGINS_DIR="$HOME/.vim/pack/plugins/start"
 
