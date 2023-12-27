@@ -6,8 +6,8 @@
 
 echo_with_prompt () {
   # The narcissistic default prompt
-  PROMPT="${PROMPT:-'[ AjmalsDotfiles ]'}"
-  echo "$PROMPT $@"
+  DOTFILES_PROMPT="${DOTFILES_PROMPT:-'[ AjmalsDotfiles ]'}"
+  echo "$DOTFILES_PROMPT $@"
 }
 
 execute_func_with_prompt() {

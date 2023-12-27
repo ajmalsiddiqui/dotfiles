@@ -8,7 +8,7 @@ set -e
 # And I guess the absolute path is needed when executing via sh
 . "$( pwd )/utils.exclude.sh"
 
-PROMPT='[ VimBootstrapper ]'
+DOTFILES_PROMPT='[ VimBootstrapper ]'
 
 test-bins vim
 

@@ -8,7 +8,7 @@
 
 . "$( pwd )/utils.exclude.sh"
 
-PROMPT='[ CronBootstrapper ]'
+DOTFILES_PROMPT='[ CronBootstrapper ]'
 
 crons=(
   # Automatically push the latest in my dotfiles to master

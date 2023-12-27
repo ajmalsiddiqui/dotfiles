@@ -7,7 +7,7 @@ set -e
 
 . "$( pwd )/utils.exclude.sh"
 
-PROMPT='[ Bootstrap ]'
+DOTFILES_PROMPT='[ Bootstrap ]'
 
 source .exports
 
