@@ -38,7 +38,7 @@ execute_func_with_prompt() {
     "$1" || return 2
 		echo_with_prompt "$2 complete"
 	else
-		echo_with_prompt "$2 cancelled by user"
+		PROMPT_COLOR=${RED_BOLD} echo_with_prompt "$2 cancelled by user"
     return 1
 	fi
 }
@@ -48,7 +48,7 @@ test-bins () {
     echo_with_prompt "Making sure required commands are installed..."
 
     for bin in $@ ; do
-        which $bin || { echo_with_prompt "Command $bin not found, please install it to continue" ; return 1 ; }
+        which $bin || { PROMPT_COLOR=${RED_BOLD} echo_with_prompt "Command $bin not found, please install it to continue" ; return 1 ; }
     done
 
     echo_with_prompt "All good!"
