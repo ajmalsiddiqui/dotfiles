@@ -4,10 +4,18 @@
 # Note that this stuff isn't supposed to be used by the dotfiles themselves, just by the stuff that helps manage/bootstrap them
 # LOL looks like a framework is surfacing... xD
 
+YELLOW_BOLD='\033[33;1m'
+GREEN_BOLD='\033[32;1m'
+RED_BOLD='\033[31;1m'
+BLUE_BOLD='\033[36;1m'
+CLEAR='\033[0m'
+
 echo_with_prompt () {
+  PROMPT_COLOR=${PROMPT_COLOR:-${GREEN_BOLD}}
+
   # The narcissistic default prompt
-  DOTFILES_PROMPT="${DOTFILES_PROMPT:-'[ AjmalsDotfiles ]'}"
-  echo "$DOTFILES_PROMPT $@"
+  DOTFILES_PROMPT="${DOTFILES_PROMPT:-[ AjmalsDotfiles ]}"
+  printf "${PROMPT_COLOR}${DOTFILES_PROMPT}${CLEAR} $@\n"
 }
 
 execute_func_with_prompt() {
