@@ -5,6 +5,16 @@ Top secret text files that make my world a better place. :')
 Make sure you read the [About My Dotfiles](#about-my-dotfiles) section if you intend to use these.
 Currently under construction.
 
+## My Stack
+
+My current rig is as follows:
+* editor: [vim](https://www.vim.org/)
+* terminal emulator: [alacritty](https://alacritty.org/)
+* terminal multiplexer: [tmux](https://github.com/tmux/tmux/wiki)
+* window manager: [sway](https://swaywm.org/)
+* shell: bash (zsh coming soon!)
+* prompt: [starship](https://starship.rs/)
+
 ## A Word of Advice
 
 Before you use these (or any) dotfiles, make sure you back your dotfiles up into a directory (you'll find them in your home folder - type `ls -a` in the terminal).
