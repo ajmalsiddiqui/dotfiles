@@ -1,7 +1,3 @@
-# ---------------------------------
-# Common aliases
-# ---------------------------------
-
 alias home='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -9,51 +5,23 @@ alias ....='cd ../../..'
 alias '?=man'
 alias ls='ls -A --color=auto'
 
-
-# ---------------------------------
-# Git specific aliases
-# ---------------------------------
-
 alias g='git'
-# Note: these aliases have been moved to .gitconfig
-
-# ---------------------------------
-# NPM :D
-# ---------------------------------
-
-# This makes life MUCH easier :')
-alias nr='npm run'
-alias ni='npm install'
-alias nid='npm install -D'
-alias nip='npm install --only=prod'
-
-
-# ---------------------------------
-# Python virtual env aliases
-# ---------------------------------
 
 # Create a virtualenv with python3 as the interpreter
 # I usually name my virtualenv .venv
 alias venv="virtualenv -p $( which python3 ) .venv"
 alias vac='source .venv/bin/activate'
 
-# ---------------------------------
-# Aliases for the Heroku CLI
-# ---------------------------------
-
-alias h='heroku'
-alias hl='heroku login'
-alias hc='heroku create'
-alias gphm='git push heroku master'
-
-
-# ---------------------------------
-# Aliases for tmux
-# ---------------------------------
-
 # Revert from the three pane split (see the ide function) into a single pane
 # -a kills all panes except the one specified by -t, and 0 is the first pane made (and hence the main pane)
 alias xide='tmux kill-pane -a -t 0'
+
+alias readelf='readelf -W'
+
+alias poetry-venv='poetry show -v | grep "Using virtualenv" | cut -d \  -f 3'
+alias poetry-activate='source $(poetry-venv)/bin/activate'
+
+alias addtopath='export PATH=$( pwd ):$PATH'
 
 # This should be the last line of the file
 # For local changes
