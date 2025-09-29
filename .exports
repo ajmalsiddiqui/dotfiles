@@ -21,6 +21,12 @@ export HISTCONTROL=ignoredups
 
 export PATH="$PATH:$HOME/bin"
 
+# $HOME/.config is the default value of XDG_CONFIG_HOME per the spec
+[ -z "$XDG_CONFIG_HOME" ] && export XDG_CONFIG_HOME="$HOME/.config"
+
+# Sekiro wallpaper! :D
+export WALLPAPER_URL='https://images3.alphacoders.com/120/1204450.jpg'
+
 # This should be the last line of the file
 # For local changes
 # Don't make edits below this

@@ -21,11 +21,21 @@ init () {
 	mkdir -p "$PATH_TO_JOURNAL"
 }
 
+download_wallpaper() {
+    if [ -z "$WALLPAPER_URL" ] ; then
+        echo_with_prompt "WALLPAPER_URL not set, skipping wallpaper setup"
+    else
+        PROMPT_COLOR=$YELLOW_BOLD echo_with_prompt "Downloading wallpaper from $WALLPAPER_URL to $HOME/wallpaper"
+        curl "$WALLPAPER_URL" -o $HOME/wallpaper
+        echo_with_prompt "Downloaded wallpaper"
+    fi
+}
+
 # TODO : Delete symlinks to deleted files
 # Is this where rsync shines?
 # TODO - add support for -f and --force
 link () {
-  for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|\.gitmodules|.*.md' ) ; do
+  for file in $( ls -A | grep -vE '\.config|\.exclude*|\.git$|\.gitignore|\.gitmodules|.*.md' ) ; do
     # Silently ignore errors here because the files may already exist
     if [ -f "$HOME/$file" -a ! -L "$HOME/$file" ]; then
         echo_with_prompt "Backing up $HOME/$file as $HOME/$file.bak"
@@ -33,6 +43,20 @@ link () {
     fi
     ln -sv "$PWD/$file" "$HOME" || true
   done
+
+  mkdir -p "$HOME/.config"
+
+  # .config contains dotfiles that should be present in XDG_CONFIG_HOME
+  pushd "./.config"
+  for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|\.gitmodules|.*.md' ) ; do
+    # Silently ignore errors here because the files may already exist
+    if [ -e "$XDG_CONFIG_HOME/$file" -a ! -L "$XDG_CONFIG_HOME/$file" ]; then
+        echo_with_prompt "Backing up $XDG_CONFIG_HOME/$file as $XDG_CONFIG_HOME/$file.bak"
+        mv "$XDG_CONFIG_HOME/$file" "$XDG_CONFIG_HOME/$file.bak"
+    fi
+    ln -sv "$PWD/$file" "$XDG_CONFIG_HOME" || true
+  done
+  popd
 }
 
 bootstrap_vim() {
@@ -47,6 +71,7 @@ bootstrap_crontab() {
 
 test-bins git curl
 init
+execute_func_with_prompt download_wallpaper "download wallpaper"
 execute_func_with_prompt link "symlink everything"
 execute_func_with_prompt bootstrap_vim "bootstrap vim with plugins and the like"
 execute_func_with_prompt bootstrap_crontab "bootstrap the crontab"
